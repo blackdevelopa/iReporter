@@ -5,10 +5,6 @@ body {
   overflow: hidden;
 }
 
-.container {
-  display: flex;
-}
-
 .main {
   display: flex;
   flex-direction: column;
@@ -18,35 +14,43 @@ body {
   height: 100vh;
 }
 
+.main .logo img {
+  width: 100px;
+  margin-bottom: 20px;
+}
+
 .register {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 75px;
 }
 
-.register label {
-  line-height: 2rem;
+.register .content {
+  padding-bottom: 15px;
 }
 
 .register .text_input {
-  margin-bottom: 20px;
-  width: 90%;
-  padding: 10px;
+  width: 100%;
+  padding: 8px;
+  border-radius: 2px;
+  color: #ffffff;
+  background: none;
 }
 
 .register .button {
-  padding: 10px;
   width: 100%;
-  margin-bottom: 25px;
+  padding: 5px;
+  margin: 10px;
+  color: orange;
+  background: none;
+}
+
+.register link {
+  text-decoration: none;
 }
 
 .footer {
+  margin-top: 25px;
   text-align: center;
-}
-
-.showcase {
-  flex: 1;
-  background: url('img/showcase.jpeg');
 }
