@@ -1,0 +1,56 @@
+body {
+  font-family: Georgia, Times, 'Times New Roman', serif;
+  background: blueviolet;
+  color: #ffffff;
+  overflow: hidden;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.main .logo img {
+  width: 100px;
+  margin-bottom: 20px;
+}
+
+.register {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.register .content {
+  padding-bottom: 15px;
+}
+
+.register .text_input {
+  width: 100%;
+  padding: 8px;
+  border-radius: 2px;
+  color: #ffffff;
+  background: none;
+}
+
+.register .button {
+  width: 100%;
+  padding: 5px;
+  margin: 10px;
+  color: orange;
+  background: none;
+}
+
+.register link {
+  text-decoration: none;
+}
+
+.footer {
+  margin-top: 25px;
+  text-align: center;
+}
