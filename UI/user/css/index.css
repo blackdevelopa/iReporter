@@ -1,0 +1,52 @@
+body {
+  font-family: Georgia, Times, 'Times New Roman', serif;
+  background: blueviolet;
+  color: #ffffff;
+  overflow: hidden;
+}
+
+.container {
+  display: flex;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.register {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 75px;
+}
+
+.register label {
+  line-height: 2rem;
+}
+
+.register .text_input {
+  margin-bottom: 20px;
+  width: 90%;
+  padding: 10px;
+}
+
+.register .button {
+  padding: 10px;
+  width: 100%;
+  margin-bottom: 25px;
+}
+
+.footer {
+  text-align: center;
+}
+
+.showcase {
+  flex: 1;
+  background: url('img/showcase.jpeg');
+}
