@@ -1,0 +1,25 @@
+body {
+  font-family: Georgia, Times, 'Times New Roman', serif;
+  background: blueviolet;
+  color: #ffffff;
+  overflow: hidden;
+}
+
+.sidenav {
+  height: 100%;
+  width: 160px;
+  position: fixed;
+  left: 0;
+  background-color: #fff;
+  padding-top: 16px;
+}
+
+.sidenav a {
+  display: block;
+  text-decoration: none;
+}
+
+.main {
+  margin-left: 160px;
+  padding: 0px 10px;
+}
