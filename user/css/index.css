@@ -1,7 +1,7 @@
 body {
   font-family: Georgia, Times, 'Times New Roman', serif;
-  background: blueviolet;
-  color: #ffffff;
+  background: #613830;
+  color: #fbf5de;
   overflow: hidden;
 }
 
@@ -14,9 +14,10 @@ body {
   height: 100vh;
 }
 
-.main .logo img {
-  width: 100px;
-  margin-bottom: 20px;
+.main .logo .logo_text {
+  font-weight: 800;
+  font-family: cursive;
+  font-size: 45px;
 }
 
 .register {
@@ -33,24 +34,41 @@ body {
 .register .text_input {
   width: 100%;
   padding: 8px;
-  border-radius: 2px;
-  color: #ffffff;
+  border-radius: 6px;
+  text-align: center;
+  color: #fbf5de;
   background: none;
 }
 
 .register .button {
   width: 100%;
-  padding: 5px;
+  padding: 8px;
   margin: 10px;
-  color: orange;
+  border-radius: 6px;
+  color: #fbf5de;
   background: none;
 }
 
-.register link {
-  text-decoration: none;
+.register .button:hover {
+  background: #613;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+  text-align: center;
+}
+
+.links a:hover {
+  color: #fbf5de;
 }
 
 .footer {
   margin-top: 25px;
   text-align: center;
+}
+
+.footer a:hover {
+  color: #fbf5de;
 }
