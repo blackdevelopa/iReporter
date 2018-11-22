@@ -1,0 +1,46 @@
+body {
+  padding: 0;
+  margin: 0;
+  color: #fbf5de;
+  background: #613830;
+  overflow: hidden;
+}
+
+.navbar {
+  top: 0;
+  padding: 20px;
+  width: 100%;
+  background: #ffffff;
+}
+
+.navbar .logo {
+  font-weight: 400;
+  font-family: cursive;
+  font-size: 25px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.about_user {
+  display: flex;
+}
+
+.about_user .img {
+  display: flex;
+  flex: 1
+}
+
+.about_user .text {
+  display: flex;
+  flex: 3;
+}
+
+.main {
+  display: flex;
+}
+.card {
+  width: 30%;
+  padding: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
