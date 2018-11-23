@@ -45,7 +45,6 @@ body {
   padding: 8px;
   margin: 10px;
   border-radius: 6px;
-  color: #fbf5de;
   background: none;
 }
 
@@ -53,15 +52,25 @@ body {
   background: #613;
 }
 
-.links {
+.register .create_account {
+  color: #fbf5de;
+  text-decoration: none;
+}
+
+.login_links {
   display: flex;
   flex-direction: column;
   padding-top: 20px;
   text-align: center;
 }
 
-.links a:hover {
+.login_links a:hover {
+  color: #613;
+}
+
+.links {
   color: #fbf5de;
+  text-decoration: none;
 }
 
 .footer {
@@ -70,5 +79,5 @@ body {
 }
 
 .footer a:hover {
-  color: #fbf5de;
+  color: #613;
 }

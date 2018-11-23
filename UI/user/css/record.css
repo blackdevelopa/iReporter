@@ -1,25 +1,75 @@
 body {
+  padding: 0;
+  margin: 0;
   font-family: Georgia, Times, 'Times New Roman', serif;
-  background: blueviolet;
-  color: #ffffff;
+  background: #ffffff;
+  color: #000;
   overflow: hidden;
 }
 
-.sidenav {
-  height: 100%;
-  width: 160px;
-  position: fixed;
-  left: 0;
-  background-color: #fff;
-  padding-top: 16px;
+.navbar {
+  display: flex;
+  top: 0;
+  padding: 20px 0;
+  width: 100%;
+  background: #ffffff;
 }
 
-.sidenav a {
-  display: block;
+.navbar .navbar_text{
+  text-decoration: none;
+  padding: 0 5px;
+}
+
+.navbar .logo {
+  flex: 1;
+  padding-left: 5%;
+}
+
+.navbar .menu {
+  display: flex;
+  flex: 1;
+  flex-direction: row-reverse;
+  padding-right: 5%;
+}
+
+.second_nav {
+  display: flex;
+  padding: 20px 0;
+  width: 100%;
+}
+
+.second_nav .redflag {
+  flex: 1;
+  padding-left: 20%;
+}
+
+.second_nav .intervention {
+  display: flex;
+  flex: 1;
+  flex-direction: row-reverse;
+  padding-right: 20%;
+}
+
+.second_nav .record {
   text-decoration: none;
 }
 
 .main {
-  margin-left: 160px;
-  padding: 0px 10px;
+  display: flex;
+  padding: 20px;
+}
+
+.card {
+  width: 30%;
+  height: 40%;
+  padding: 20px;
+  margin-left: 2%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+
+.btn {
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
 }
