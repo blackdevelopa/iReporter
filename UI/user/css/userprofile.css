@@ -3,17 +3,19 @@ body {
   margin: 0;
   color: #000;
   overflow: hidden;
-  background: blue;
+  background: #fff;
 }
 
 .navbar {
   width: 100%;
   padding: 20px;
   text-align: center;
-  background: green;
 }
 
 .navbar .logo_text {
+  padding-left: 5%;
+  font-size: 20px;
+  font-family: cursive;
   text-decoration: none;
 }
 
@@ -27,21 +29,52 @@ body {
   flex-direction: column;
   flex: 1;
   padding: 20px;
-  background: yellow;
+  padding-top: 20%;
+  background: gray;
 }
 
 .sidenav_text {
-  padding: 20px;
+  text-align: center;
+  justify-content: center;
+  line-height: 50px;
+  font-size: 20px;
   text-decoration: none;
+  color: #fff;
+}
+
+.sidenav_text:hover {
+  color: #613;
 }
 
 .main {
   display: flex;
+  flex-direction: column;
   flex:4;
-  background: #000;
 }
 
 .main_text {
   color: #fff;
+}
+
+.container {
+  display: flex;
+  padding: 20px;
+}
+
+.container .user_photo {
+  display: flex;
+  padding-right: 20px;
+}
+
+.container .user_bio {
+
+}
+
+img {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 200px;
+  height: 200px;
 }
 
