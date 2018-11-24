@@ -1,14 +1,14 @@
 body {
   font-family: Georgia, Times, 'Times New Roman', serif;
-  background: #613830;
+  background: #03707d;
   color: #fbf5de;
   overflow: hidden;
 }
 
 .main {
   display: flex;
+  padding: 20px;
   flex-direction: column;
-  flex: 1;
   justify-content: center;
   align-items: center;
   height: 100vh;
@@ -23,8 +23,7 @@ body {
 .register {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  padding-bottom: 20px 40px;
 }
 
 .register .content {
