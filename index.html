@@ -16,21 +16,21 @@
       <form>
         <div class="content">
           <label>Username</label>
-          <input class="text_input" type="text" placeholder="your username?">
+          <input class="text_input" type="text" placeholder="your username?" required>
         </div>
         <div class="content">
           <label>Email</label>
-          <input class="text_input" type="email" placeholder="your email address?">
+          <input class="text_input" type="email" placeholder="your email address?" required>
         </div>
         <div class="content">
           <label>Password</label>
-          <input class="text_input" type="password" placeholder="your password?">
+          <input class="text_input" type="password" placeholder="your password?" minlength="5" maxlength="12" pattern="^(?=.*\d)(?=.*[a-z])(?!.*\s).*$" title="Please include at least a lowercase character and a number." required>
         </div>
         <button type="signin" class="button"><a class="create_account" href="./UI/user/user-home.html">Create account</a></button>
       </form>
       <div class="login_links">
         <a class="links" href="./UI/user/user-login.html">Login instead?</a>
-        <a class="links" href="../admin/admin-login.html">Login as an admin</a>
+        <a class="links" href="./UI/admin/admin-login.html">Login as an admin</a>
       </div>
     </div>
     <footer class="footer">

@@ -1,29 +1,29 @@
 body {
   font-family: Georgia, Times, 'Times New Roman', serif;
-  background: blueviolet;
-  color: #ffffff;
+  background: darkolivegreen;
+  color: #fbf5de;
   overflow: hidden;
 }
 
 .main {
   display: flex;
+  padding: 20px;
   flex-direction: column;
-  flex: 1;
   justify-content: center;
   align-items: center;
   height: 100vh;
 }
 
-.main .logo img {
-  width: 100px;
-  margin-bottom: 20px;
+.main .logo .logo_text {
+  font-weight: 800;
+  font-family: cursive;
+  font-size: 45px;
 }
 
 .register {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  padding-bottom: 20px 40px;
 }
 
 .register .content {
@@ -33,24 +33,50 @@ body {
 .register .text_input {
   width: 100%;
   padding: 8px;
-  border-radius: 2px;
-  color: #ffffff;
+  border-radius: 6px;
+  text-align: center;
+  color: #fbf5de;
   background: none;
 }
 
 .register .button {
   width: 100%;
-  padding: 5px;
+  padding: 8px;
   margin: 10px;
-  color: orange;
+  border-radius: 6px;
   background: none;
 }
 
-.register link {
+.register .button:hover {
+  background: #613;
+}
+
+.register .create_account {
+  color: #fbf5de;
+  text-decoration: none;
+}
+
+.login_links {
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+  text-align: center;
+}
+
+.login_links a:hover {
+  color: #613;
+}
+
+.links {
+  color: #fbf5de;
   text-decoration: none;
 }
 
 .footer {
   margin-top: 25px;
   text-align: center;
+}
+
+.footer a:hover {
+  color: #613;
 }
