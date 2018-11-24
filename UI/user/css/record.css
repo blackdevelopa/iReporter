@@ -4,7 +4,8 @@ body {
   font-family: Georgia, Times, 'Times New Roman', serif;
   background: #ffffff;
   color: #000;
-  overflow: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .navbar {
@@ -15,14 +16,22 @@ body {
   background: #ffffff;
 }
 
-.navbar .navbar_text{
+.navbar .navbar_text {
   text-decoration: none;
   padding: 0 5px;
+  color: #000;
+}
+
+.navbar .navbar_text:hover {
+  color: orange;
 }
 
 .navbar .logo {
   flex: 1;
   padding-left: 5%;
+  font-size: 20px;
+  font-family: cursive;
+  text-decoration: none;
 }
 
 .navbar .menu {
@@ -36,6 +45,7 @@ body {
   display: flex;
   padding: 20px 0;
   width: 100%;
+  background: gray;
 }
 
 .second_nav .redflag {
@@ -52,11 +62,23 @@ body {
 
 .second_nav .record {
   text-decoration: none;
+  color: #fff;
+}
+
+.second_nav .record:hover {
+  color: orange;
 }
 
 .main {
   display: flex;
   padding: 20px;
+}
+
+img {
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  padding: 5px;
+  width: 150px;
 }
 
 .card {
@@ -72,4 +94,8 @@ body {
   padding: 10px;
   border-radius: 6px;
   cursor: pointer;
+}
+
+.btn:hover {
+  border: 2px solid orange;
 }
