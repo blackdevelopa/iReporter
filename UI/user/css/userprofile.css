@@ -1,0 +1,47 @@
+body {
+  padding: 0;
+  margin: 0;
+  color: #000;
+  overflow: hidden;
+  background: blue;
+}
+
+.navbar {
+  width: 100%;
+  padding: 20px;
+  text-align: center;
+  background: green;
+}
+
+.navbar .logo_text {
+  text-decoration: none;
+}
+
+.user_profile {
+  display: flex;
+  height: 100vh;
+}
+
+.sidenav {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 20px;
+  background: yellow;
+}
+
+.sidenav_text {
+  padding: 20px;
+  text-decoration: none;
+}
+
+.main {
+  display: flex;
+  flex:4;
+  background: #000;
+}
+
+.main_text {
+  color: #fff;
+}
+
