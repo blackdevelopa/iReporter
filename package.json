@@ -1,0 +1,25 @@
+{
+  "name": "ireporter",
+  "version": "1.0.0",
+  "description": "### Introduction iReporter seeks to provide a platform that allows users report corruption cases and interventions to designated authorities.",
+  "main": "server/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/blackdevelopa/iReporter.git"
+  },
+  "keywords": [
+    "iReporter"
+  ],
+  "author": "Black Developa",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/blackdevelopa/iReporter/issues"
+  },
+  "homepage": "https://github.com/blackdevelopa/iReporter#readme",
+  "devDependencies": {
+    "eslint": "^5.9.0"
+  }
+}
