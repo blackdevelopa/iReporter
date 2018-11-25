@@ -3,7 +3,8 @@ body {
   margin: 0;
   color: #fbf5de;
   background: #613830;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .navbar {
@@ -26,12 +27,12 @@ body {
   flex: 1;
   flex-direction: row-reverse;
   padding-right: 5%;
+  text-decoration: none;
 }
 
 .user_details {
   display: flex;
   width: 100%;
-  height: 100vh;
   padding: 20px 10%;
   background: #444;
 }
@@ -54,17 +55,40 @@ body {
 
 .switch_tab .tab {
   padding: 5px 30px;
+  text-decoration: none;
+  color: #fff;
+}
+
+.switch_tab .tab:hover {
+  color: #613;
 }
 
 .container {
   display: flex;
-  padding: 5px;
-  margin: 5px;
+  padding: 20px;
 }
 
 .card {
   width: 30%;
+  height: 40%;
   padding: 20px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
+}
+
+img {
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  padding: 5px;
+  width: 150px;
+}
+
+.btn {
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  border: 2px solid orange;
 }

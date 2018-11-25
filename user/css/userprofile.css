@@ -78,3 +78,11 @@ img {
   height: 200px;
 }
 
+.card {
+  width: 30%;
+  height: 40%;
+  padding: 20px;
+  margin-left: 2%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
