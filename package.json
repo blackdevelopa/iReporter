@@ -1,10 +1,11 @@
 {
   "name": "ireporter",
   "version": "1.0.0",
-  "description": "### Introduction iReporter seeks to provide a platform that allows users report corruption cases and interventions to designated authorities.",
+  "description": "Introduction iReporter seeks to provide a platform that allows users report corruption cases and interventions to designated authorities.",
   "main": "server/app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon server/app.js --exec babel-node",
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -20,6 +21,18 @@
   },
   "homepage": "https://github.com/blackdevelopa/iReporter#readme",
   "devDependencies": {
-    "eslint": "^5.9.0"
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "chai": "^4.2.0",
+    "chai-http": "^4.2.0",
+    "eslint": "^5.9.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "mocha": "^5.2.0",
+    "nodemon": "^1.18.6"
+  },
+  "dependencies": {
+    "express": "^4.16.4"
   }
 }
