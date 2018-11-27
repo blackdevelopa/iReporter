@@ -27,5 +27,4 @@ app.listen(port, (req, res) => {
   console.log('working');
 });
 
-
-export default app;
+module.exports = app;
