@@ -23,8 +23,6 @@ app.get('*', (req, res) => {
   })
 })
 
-app.listen(port, (req, res) => {
-  console.log('working');
-});
+app.listen(port);
 
 module.exports = app;
