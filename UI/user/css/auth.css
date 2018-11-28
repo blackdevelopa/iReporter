@@ -1,7 +1,7 @@
 body {
   font-family: Georgia, Times, 'Times New Roman', serif;
-  background: #03707d;
-  color: #fbf5de;
+  background: grey;
+  color: #ffffff;
   overflow: hidden;
 }
 
@@ -35,8 +35,7 @@ body {
   padding: 8px;
   border-radius: 6px;
   text-align: center;
-  color: #fbf5de;
-  background: none;
+  color: #000000;
 }
 
 .register .button {
@@ -45,6 +44,7 @@ body {
   margin: 10px;
   border-radius: 6px;
   background: none;
+  cursor: pointer;
 }
 
 .register .button:hover {

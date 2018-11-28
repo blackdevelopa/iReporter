@@ -90,12 +90,12 @@ img {
   transition: 0.3s;
 }
 
-.btn {
+.button {
   padding: 10px;
   border-radius: 6px;
   cursor: pointer;
 }
 
-.btn:hover {
+.button:hover {
   border: 2px solid orange;
 }
