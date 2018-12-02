@@ -19,3 +19,15 @@ describe('/GET home route', () => {
       });
   });
 });
+
+describe('GET /api/v1/incidents', () => {
+  it('should GET all incidents', (done) => {
+    chai.request(app)
+      .get('/api/v1/incidents')
+      .end((err, res) => {
+        res.should.have.status(200);
+        res.should.be.json;
+        done();
+      });
+  });
+});
