@@ -1,10 +1,11 @@
-// import incidents from '../models/incident';
-// import users from '../models/user';
+import IncidentModel from '../models/incident';
 
-// // get all redflags
+// get all redflags
+const IncidentController = {
+  getAll(req, res) {
+    const incidents = IncidentModel.findAll();
+    return res.status(200).send(incidents);
+  }
+}
 
-// export function getAllRedflags(req, res) {
-  
-// }
-
-// export default incidentController;
+export default IncidentController;

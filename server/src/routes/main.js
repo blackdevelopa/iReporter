@@ -1,8 +1,8 @@
 import express from 'express';
-import { getAllRedflags } from '../controllers/incident';
+import IncidentController from '../controllers/incident';
 
 const router = express.Router();
 
-router.get('/redflags', getAllRedflags);
+router.get('/redflags', IncidentController.getAll);
 
 export default router;
