@@ -1,8 +1,8 @@
 import express from 'express';
-import Redflag from '../controllers/redflag';
+import IncidentController from '../controllers/incident';
 
 const router = express.Router();
 
-router.post('/redflags', Redflag.createRedflag);
+router.get('/redflags', IncidentController.getAll);
 
 export default router;
