@@ -31,3 +31,15 @@ describe('GET /api/v1/incidents', () => {
       });
   });
 });
+
+describe('GET /api/v1/interventions', () => {
+  it('should GET all interventions', (done) => {
+    chai.request(app)
+      .get('/api/v1/interventions')
+      .end((err, res) => {
+        res.should.have.status(200);
+        res.should.be.json;
+        done();
+      });
+  });
+});

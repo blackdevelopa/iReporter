@@ -30,6 +30,8 @@ iReporter seeks to provide a platform that allows users report corruption cases 
 | HTTP Verbs | Endpoints | Action |
 | --- | --- | --- |
 | GET | /api/v1/incidents | To get all incidents |
+| GET | /api/v1/redflags | To get all redflags |
+| GET | /api/v1/interventions | To get all interventions |
 
 ### Author
 [Sylva Elendu](https://github.com/blackdevelopa)
