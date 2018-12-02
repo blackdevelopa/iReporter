@@ -1,3 +1,5 @@
+<a href="https://codeclimate.com/github/blackdevelopa/iReporter/maintainability"><img src="https://api.codeclimate.com/v1/badges/c6341af171d23107cbc1/maintainability" /></a> <a href="https://codeclimate.com/github/blackdevelopa/iReporter/test_coverage"><img src="https://api.codeclimate.com/v1/badges/c6341af171d23107cbc1/test_coverage" /></a>
+
 # iReporter
 
 ### Introduction
