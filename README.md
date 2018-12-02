@@ -16,6 +16,20 @@ iReporter seeks to provide a platform that allows users report corruption cases 
 * An admin can change the status of any records
 * An admin can view all records of all users
 
+### Installation Guide
+* Clone this repository [here](https://github.com/blackdevelopa/iReporter.git).
+* Check to see you are in the develop branch, else run a `git checkout develop` in your terminal.
+* Run `npm install` to install all dependencies
+
+### Usage
+* `npm run dev` to start the application.
+* `npm run test` to run test.
+* Connect to the API using Postman on port 3000.
+
+### API Endpoints
+| HTTP Verbs | Endpoints | Action |
+| --- | --- | --- |
+| GET | /api/v1/incidents | To get all incidents |
 
 ### Author
 [Sylva Elendu](https://github.com/blackdevelopa)
