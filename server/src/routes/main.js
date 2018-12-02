@@ -3,6 +3,6 @@ import IncidentController from '../controllers/incident';
 
 const router = express.Router();
 
-router.get('/redflags', IncidentController.getAll);
+router.get('/incidents', IncidentController.getAll);
 
 export default router;
