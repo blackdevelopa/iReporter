@@ -1,18 +1,9 @@
 language: node_js
-branches:
-  only:
-    - develop
 node_js:
-  - '10.9.0'
-install:
-  - npm install
-
-cache:
-  directories:
-    - 'node_modules'
-script: 
-  - NODE_ENV=test npm test
+  - '9.6.0'
 before_script:
   - npm install
-after_success:
-  - npm run coveralls
+script: npm test
+before_install:
+  - npm ci -g npm@6.4.1
+cache: npm
