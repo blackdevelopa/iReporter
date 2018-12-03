@@ -29,6 +29,21 @@ const IncidentController = {
       }
     });
   },
+
+  getSingleRedflag(req, res) {
+    const redflagId = parseInt(req.params.id);    
+    IncidentModel.forEach((incidents) => {
+      const singleRedflag = [];
+      if (incidents.id === redflagId) {
+        console.log(redflagId);
+        singleRedflag.push(incidents);
+        console.log(singleRedflag);
+        return res.status(200).json({message: 'Specific redflag', singleRedflag});
+      } else {
+        return 'no';
+      }
+    });
+  }
 };
 
 
