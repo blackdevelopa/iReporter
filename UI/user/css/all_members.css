@@ -4,7 +4,6 @@ body {
   background: #fff;
   color: #000;
   overflow-x: hidden;
-  overflow-y: auto;
 }
 
 .navbar {
@@ -64,4 +63,22 @@ img {
   direction: flex;
   padding: 20px 40px;
   justify-items: center;
+}
+
+@media only screen and (max-width: 360px) {
+  .navbar {
+    width: 100%;
+  }
+  .member_container {
+    display: block;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 5px 0;
+  }
+
+  .card {
+    width: 100%;
+    text-align: center;
+  }
 }
