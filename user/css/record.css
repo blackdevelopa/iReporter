@@ -4,7 +4,6 @@ body {
   font-family: Georgia, Times, 'Times New Roman', serif;
   background: #ffffff;
   color: #000;
-  overflow-y: auto;
   overflow-x: hidden;
 }
 
@@ -98,4 +97,16 @@ img {
 
 .button:hover {
   border: 2px solid orange;
+}
+
+@media only screen and (min-width: 360px) {
+  .navbar {
+    width: 100%;
+  }
+  .main {
+    display: block;
+  }
+  .card {
+    width: 100%;
+  }
 }
