@@ -14,7 +14,7 @@
     "build": "npm run clean && npm run build-server",
     "start": "node ./build/app.js",
     "test": "mocha test/*.js --require babel-register --exit",
-    "cover": "istanbul cover _mocha",
+    "cover": "istanbul cover _mocha test/*.js babel-register",
     "coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls"
   },
   "repository": {
