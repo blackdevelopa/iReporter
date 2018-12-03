@@ -5,6 +5,10 @@
   "main": "server/app.js",
   "scripts": {
     "dev": "nodemon server/app.js --exec babel-node",
+    "clean": "rm -rf build && mkdir build",
+    "build-server": "babel -d ./build ./server -s",
+    "build": "npm run clean && npm run build-server",
+    "start": "node ./build/app.js",
     "test": "mocha test/*.js --require babel-register"
   },
   "repository": {
