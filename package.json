@@ -13,7 +13,7 @@
     "build-server": "babel -d ./build ./server -s",
     "build": "npm run clean && npm run build-server",
     "start": "node ./build/app.js",
-    "test": "mocha test/*.js --require babel-register"
+    "test": "mocha test/*.js --require babel-register --exit"
   },
   "repository": {
     "type": "git",
