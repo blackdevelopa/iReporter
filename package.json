@@ -14,7 +14,7 @@
     "build": "npm run clean && npm run build-server",
     "start": "node ./build/app.js",
     "test": "mocha test/*.js --require babel-register --exit",
-    "test-coverage": "istanbul cover ./"
+    "coverage": "nyc --reporter=lcov npm test && nyc report --reporter=text-lcov | coveralls"
   },
   "repository": {
     "type": "git",
