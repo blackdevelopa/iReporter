@@ -43,3 +43,15 @@ describe('GET /api/v1/interventions', () => {
       });
   });
 });
+
+describe('GET /api/v1/redflags', () => {
+  it('should GET specifc redflags', (done) => {
+    chai.request(app)
+      .get('/api/v1/redflags')
+      .end((err, res) => {
+        res.should.have.status(200);
+        res.should.be.json;
+        done();
+      });
+  });
+});
