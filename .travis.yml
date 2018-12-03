@@ -5,5 +5,5 @@ before_script:
   - npm install
 script: npm test
 before_install:
-  - npm ci -g npm@6.4.1
+  - npm i -g npm@6.4.1
 cache: npm
