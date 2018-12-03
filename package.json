@@ -1,6 +1,10 @@
 {
   "name": "ireporter",
   "version": "1.0.0",
+  "engines": {
+    "node": "10.9.0",
+    "npm": "6.4.1"
+  },
   "description": "Introduction iReporter seeks to provide a platform that allows users report corruption cases and interventions to designated authorities.",
   "main": "server/app.js",
   "scripts": {
@@ -40,6 +44,7 @@
   },
   "dependencies": {
     "body-parser": "^1.18.3",
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "morgan": "^1.9.1"
   }
 }

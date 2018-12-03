@@ -1,11 +1,13 @@
 import express from 'express';
 import bodyParser from 'body-parser';
+import logger from 'morgan';
 import mainRoutes from './src/routes/main';
 
 const app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(logger('dev'));
 
 const port = 3000;
 
