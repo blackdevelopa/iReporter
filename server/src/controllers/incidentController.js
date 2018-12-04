@@ -46,5 +46,4 @@ const incidentController = {
   }
 };
 
-
 export default incidentController;
