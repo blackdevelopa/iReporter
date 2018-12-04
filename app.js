@@ -1,7 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import logger from 'morgan';
-import mainRoutes from './src/routes/main';
+import Routes from './server/src/routes';
 
 const app = express();
 
@@ -11,20 +11,20 @@ app.use(logger('dev'));
 
 const port = 3000;
 
-app.use('/api/v1/', mainRoutes);
+app.use('/api/v1/', Routes);
 
 app.get('/', (req, res) => {
   res.status(200).json({
     message: 'Welcome to iReporter',
-  })
-})
+  });
+});
 
 app.get('*', (req, res) => {
   res.status(400).json({
     message: 'Please see documentation for proper routes',
-  })
-})
+  });
+});
 
 app.listen(port);
 
-module.exports = app;
+export default app;

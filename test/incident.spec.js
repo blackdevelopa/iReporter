@@ -1,6 +1,5 @@
 import chai from 'chai';
 import chaiHttp from 'chai-http';
-const expect = require('chai').expect;
 
 chai.use(chaiHttp);
 
@@ -20,7 +19,7 @@ describe('/GET home route', () => {
   });
 });
 
-describe('GET /api/v1/incidents', () => {
+describe('/GET /api/v1/incidenyyyts', () => {
   it('should GET all incidents', (done) => {
     chai.request(app)
       .get('/api/v1/incidents')

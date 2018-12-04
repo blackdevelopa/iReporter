@@ -1,6 +1,6 @@
 // Dummy user details
 
-const users = [
+const userModel = [
   {
     id: 1,
     firstname: 'Sylva',
@@ -29,4 +29,4 @@ const users = [
 ];
 
 
-export default users;
+export default userModel;

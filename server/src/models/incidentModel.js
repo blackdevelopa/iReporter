@@ -1,6 +1,6 @@
 // Default incident details
 
-const IncidentModel = [
+const incidentModel = [
   {
     id: 1,
     createdOn: new Date().toLocaleString(),
@@ -26,4 +26,4 @@ const IncidentModel = [
   }
 ];
 
-export default IncidentModel;
+export default incidentModel;

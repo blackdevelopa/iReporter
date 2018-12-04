@@ -1,13 +1,13 @@
-import IncidentModel from '../models/incident';
+import IncidentModel from '../models/incidentModel';
 
 // get all redflags
-const IncidentController = {
+const incidentController = {
   getAllIncidents(req, res) {
     const all = [];
     IncidentModel.forEach((value) => {
       all.push(value);
     });
-    return res.status(200).send(all);
+    return res.status(200).json(all);
   },
 
   getAllRedflags(req, res) {
@@ -15,7 +15,7 @@ const IncidentController = {
       const redflags = [];
       if (incidents.type === 'redflag') {
         redflags.push(incidents);
-        return res.status(200).send(redflags);
+        return res.status(200).json(redflags);
       }
     });
   },
@@ -25,7 +25,7 @@ const IncidentController = {
       const interventions = [];
       if (incidents.type === 'intervention') {
         interventions.push(incidents);
-        return res.status(200).send(interventions);
+        return res.status(200).json(interventions);
       }
     });
   },
@@ -40,11 +40,11 @@ const IncidentController = {
         console.log(singleRedflag);
         return res.status(200).json({message: 'Specific redflag', singleRedflag});
       } else {
-        return 'no';
+        return res.status(400).json({ message: 'An error occured'});
       }
     });
   }
 };
 
 
-export default IncidentController;
+export default incidentController;
