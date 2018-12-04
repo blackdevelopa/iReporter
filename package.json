@@ -9,9 +9,11 @@
   "main": "server/app.js",
   "scripts": {
     "lint": "eslint server/ --quiet",
-    "start": "babel-node app.js",
-    "dev": "nodemon app.js --exec babel-node",
-    "test": "nyc mocha - -timeout 10000 - -require babel-register ./server/test/incident.js --exit",
+    "start": "babel-node ./server/app.js",
+    "build" : "rm - rf build && mkdir build && babel -d ./build ./server -s",
+    "heroku-postbuild" : "NPM_CONFIG_PRODUCTION = false npm run build",
+    "dev": "nodemon ./server/app.js --exec babel-node",
+    "test": "mocha test/*.js --require babel-register --exit",
     "coverage": "nyc report --reporter=text-lcov --reporter=lcov | coveralls"
   },
   "repository": {

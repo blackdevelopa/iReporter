@@ -1,17 +1,7 @@
-import IncidentModel from '../models/incidentModel';
+/* eslint-disable consistent-return */
+import IncidentModel from '../models/IncidentModel';
 
-/**
- * Get All Redflags.
- * @constructor
- * @param {string} title - The title of the book.
- * @param {string} author - The author of the book.
- */
-function Book(title, author) {
-}
-
-const incidentController = {
-
-
+const IncidentController = {
   getAllRedflags(req, res) {
     IncidentModel.forEach((incidents) => {
       const redflags = [];
@@ -31,20 +21,7 @@ const incidentController = {
       }
     });
   },
-
-  getSingleRedflag(req, res) {
-    const redflagId = parseInt(req.params.id);
-    IncidentModel.forEach((incidents) => {
-      const singleRedflag = [];
-      if (incidents.id === redflagId) {
-        console.log(redflagId);
-        singleRedflag.push(incidents);
-        console.log(singleRedflag);
-        return res.status(200).json({ message: 'Specific redflag', singleRedflag });
-      }
-      return res.status(400).json({ message: 'An error occured' });
-    });
-  },
 };
 
-export default incidentController;
+
+export default IncidentController;
