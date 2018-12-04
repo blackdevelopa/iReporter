@@ -8,11 +8,11 @@
   "description": "Introduction iReporter seeks to provide a platform that allows users report corruption cases and interventions to designated authorities.",
   "main": "server/app.js",
   "scripts": {
-    "dev": "nodemon server/app.js --exec babel-node",
-    "start": "babel-node ./build/app.js",
-    "test": "mocha test/*.js --require babel-register --exit",
-    "cover": "istanbul cover _mocha test/*.js babel-register",
-    "coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls"
+    "lint": "eslint server/ --quiet",
+    "start": "babel-node app.js",
+    "dev": "nodemon app.js --exec babel-node",
+    "test": "nyc mocha - -timeout 10000 - -require babel-register ./server/test/incident.js --exit",
+    "coverage": "nyc report --reporter=text-lcov --reporter=lcov | coveralls"
   },
   "repository": {
     "type": "git",

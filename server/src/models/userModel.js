@@ -11,7 +11,7 @@ const userModel = [
     username: 'sylvaelendu',
     registered: new Date().toLocaleString(),
     isAdmin: 'false',
-    password: '1234'
+    password: '1234',
   },
 
   {
@@ -24,8 +24,8 @@ const userModel = [
     username: 'admin',
     registered: new Date().toLocaleString(),
     isAdmin: 'true',
-    password: '1234'
-  }
+    password: '1234',
+  },
 ];
 
 

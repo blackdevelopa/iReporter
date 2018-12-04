@@ -1,14 +1,16 @@
 import IncidentModel from '../models/incidentModel';
 
-// get all redflags
+/**
+ * Get All Redflags.
+ * @constructor
+ * @param {string} title - The title of the book.
+ * @param {string} author - The author of the book.
+ */
+function Book(title, author) {
+}
+
 const incidentController = {
-  getAllIncidents(req, res) {
-    const all = [];
-    IncidentModel.forEach((value) => {
-      all.push(value);
-    });
-    return res.status(200).json(all);
-  },
+
 
   getAllRedflags(req, res) {
     IncidentModel.forEach((incidents) => {
@@ -31,19 +33,18 @@ const incidentController = {
   },
 
   getSingleRedflag(req, res) {
-    const redflagId = parseInt(req.params.id);    
+    const redflagId = parseInt(req.params.id);
     IncidentModel.forEach((incidents) => {
       const singleRedflag = [];
       if (incidents.id === redflagId) {
         console.log(redflagId);
         singleRedflag.push(incidents);
         console.log(singleRedflag);
-        return res.status(200).json({message: 'Specific redflag', singleRedflag});
-      } else {
-        return res.status(400).json({ message: 'An error occured'});
+        return res.status(200).json({ message: 'Specific redflag', singleRedflag });
       }
+      return res.status(400).json({ message: 'An error occured' });
     });
-  }
+  },
 };
 
 export default incidentController;

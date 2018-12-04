@@ -11,8 +11,8 @@ const incidentModel = [
     images: ['images', 'images'],
     videos: ['videos', 'videos'],
     comment: 'Police officers are exhorting drivers',
-  }, 
-  
+  },
+
   {
     id: 2,
     createdOn: new Date().toLocaleString(),
@@ -23,7 +23,7 @@ const incidentModel = [
     images: ['images', 'images'],
     videos: ['videos', 'videos'],
     comment: 'The pedestrian bridge is broken',
-  }
+  },
 ];
 
 export default incidentModel;
