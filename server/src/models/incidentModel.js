@@ -1,6 +1,6 @@
 // Default incident details
 
-const IncidentModel = [
+const Incident = [
   {
     id: 1,
     createdOn: new Date().toLocaleString(),
@@ -11,8 +11,8 @@ const IncidentModel = [
     images: ['images', 'images'],
     videos: ['videos', 'videos'],
     comment: 'Police officers are exhorting drivers',
-  }, 
-  
+  },
+
   {
     id: 2,
     createdOn: new Date().toLocaleString(),
@@ -23,7 +23,7 @@ const IncidentModel = [
     images: ['images', 'images'],
     videos: ['videos', 'videos'],
     comment: 'The pedestrian bridge is broken',
-  }
+  },
 ];
 
-export default IncidentModel;
+export default Incident;

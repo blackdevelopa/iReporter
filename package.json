@@ -8,6 +8,15 @@
   "description": "Introduction iReporter seeks to provide a platform that allows users report corruption cases and interventions to designated authorities.",
   "main": "server/app.js",
   "scripts": {
+
+    "lint": "eslint server/ --quiet",
+    "start": "babel-node ./server/app.js",
+    "build": "rm - rf build && mkdir build && babel -d ./build ./server -s",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION = false npm run build",
+    "dev": "nodemon ./server/app.js --exec babel-node",
+    "test": "nyc mocha --timeout 10000 --require babel-register ./test/incident.spec.js --exit",
+    "coverage": "nyc report --reporter=text-lcov --reporter=lcov | coveralls"
+=======
     "dev": "nodemon server/app.js --exec babel-node",
     "clean": "rm -rf build && mkdir build",
     "build-server": "babel -d ./build ./server -s",
@@ -16,6 +25,7 @@
     "test": "mocha test/*.js --require babel-register --exit",
     "cover": "istanbul cover _mocha",
     "coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls"
+
   },
   "repository": {
     "type": "git",
@@ -39,8 +49,11 @@
     "chai-http": "^4.2.0",
     "coveralls": "^3.0.2",
     "eslint": "^5.9.0",
+    "eslint-config-airbnb": "^17.1.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-react": "^7.11.1",
     "istanbul": "^0.4.5",
     "mocha": "^5.2.0",
     "mocha-lcov-reporter": "^1.3.0",
