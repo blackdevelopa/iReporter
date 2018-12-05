@@ -9,7 +9,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(logger('dev'));
 
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 app.use('/api/v1/', mainRoutes);
 
