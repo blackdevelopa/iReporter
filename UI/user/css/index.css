@@ -7,6 +7,38 @@ body {
   overflow-x: hidden;
 }
 
+.navbar {
+  display: flex;
+  top: 0;
+  padding: 20px 0;
+  width: 100%;
+  background: #ffffff;
+}
+
+.navbar .navbar_text {
+  text-decoration: none;
+  padding: 0 5px;
+  color: #000;
+}
+
+.navbar .navbar_text:hover {
+  color: #013220;
+}
+
+.navbar .logo {
+  flex: 1;
+  padding-left: 5%;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.navbar .menu {
+  display: flex;
+  flex: 1;
+  flex-direction: row-reverse;
+  padding-right: 5%;
+}
+
 .container {
   color: #fff;
   height: 100vh;
