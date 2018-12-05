@@ -1,10 +1,6 @@
 {
   "name": "ireporter",
   "version": "1.0.0",
-  "engines": {
-    "node": "10.9.0",
-    "npm": "6.4.1"
-  },
   "description": "Introduction iReporter seeks to provide a platform that allows users report corruption cases and interventions to designated authorities.",
   "main": "server/app.js",
   "scripts": {
@@ -18,10 +14,10 @@
     "coverage": "nyc report --reporter=text-lcov --reporter=lcov | coveralls"
 =======
     "dev": "nodemon server/app.js --exec babel-node",
-    "clean": "rm -rf build && mkdir build",
-    "build-server": "babel -d ./build ./server -s",
-    "build": "npm run clean && npm run build-server",
+    "build": "babel -d ./build ./server",
+    "prebuild": "rm -rf build/*",
     "start": "node ./build/app.js",
+    "prestart": "npm run build",
     "test": "mocha test/*.js --require babel-register --exit",
     "cover": "istanbul cover _mocha test/*.js babel-register",
     "coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls"
@@ -41,10 +37,6 @@
   },
   "homepage": "https://github.com/blackdevelopa/iReporter#readme",
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.3",
-    "babel-preset-env": "^1.7.0",
-    "babel-register": "^6.26.0",
     "chai": "^4.2.0",
     "chai-http": "^4.2.0",
     "coveralls": "^3.0.2",
@@ -61,6 +53,10 @@
     "nyc": "^13.1.0"
   },
   "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0",
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "morgan": "^1.9.1"
