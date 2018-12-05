@@ -1,7 +1,7 @@
 body {
   font-family: Georgia, Times, 'Times New Roman', serif;
-  background: grey;
-  color: #ffffff;
+  background: #000;
+  color: #fff;
   overflow: hidden;
 }
 
@@ -16,7 +16,6 @@ body {
 
 .main .logo .logo_text {
   font-weight: 800;
-  font-family: cursive;
   font-size: 45px;
 }
 
@@ -44,13 +43,12 @@ body {
   margin: 10px;
   border-radius: 6px;
   background: none;
-  color: #ffffff;
+  color: #fff;
   cursor: pointer;
 }
 
 .register .button:hover {
-  color: #ffffff;
-  background: #013220;
+  color: #f28500;
 }
 
 .login_links {
@@ -61,19 +59,21 @@ body {
 }
 
 .login_links a:hover {
-  color: #013220;
+  color: #f28500;
 }
 
 .links {
-  color: #fbf5de;
+  color: #ffff;
   text-decoration: none;
 }
 
 .footer {
+  bottom: 0;
+  position: fixed;
   margin-top: 25px;
   text-align: center;
 }
 
 .footer a:hover {
-  color: #013220;
+  color: #f28500;
 }

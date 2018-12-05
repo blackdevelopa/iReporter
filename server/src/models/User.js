@@ -1,6 +1,6 @@
 // Dummy user details
 
-const users = [
+const User = [
   {
     id: 1,
     firstname: 'Sylva',
@@ -11,7 +11,7 @@ const users = [
     username: 'sylvaelendu',
     registered: new Date().toLocaleString(),
     isAdmin: 'false',
-    password: '1234'
+    password: '1234',
   },
 
   {
@@ -24,9 +24,9 @@ const users = [
     username: 'admin',
     registered: new Date().toLocaleString(),
     isAdmin: 'true',
-    password: '1234'
-  }
+    password: '1234',
+  },
 ];
 
 
-export default users;
+export default User;

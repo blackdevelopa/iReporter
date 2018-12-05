@@ -1,3 +1,9 @@
 export default {
-    "extends": "airbnb-base"
+	"env": {
+		"browser": true,
+		"es6": true,
+		"jest": true,
+		"node": true
+	},
+	"extends": "airbnb"
 };
