@@ -22,7 +22,7 @@ body {
 }
 
 .navbar .navbar_text:hover {
-  color: #013220;
+  color: #f28500;
 }
 
 .navbar .logo {
@@ -90,11 +90,11 @@ body {
   padding: 20px 40px;
   border-radius: 8px;
   cursor: pointer;
-  color: #000;
-  background:#B0FC23;
+  color: #fff;
+  background: none;
 }
 
 .button:hover {
-  color: #fff;
-  background:#013220;
+  color: #f28500;
+  background: none;
 }
