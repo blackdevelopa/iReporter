@@ -9,34 +9,57 @@
 </head>
 <body>
   <nav class="navbar">
-    <a class="logo_text" href="user-home.html">iReporter</a>
+    <a class="logo" href="user-home.html">iReporter</a>
+    <div class="menu">
+      <a class="navbar_text" href="../index.html">Logout</a>
+      <a class="navbar_text" href="user-home.html">Home</a>
+    </div>
   </nav>
 
-  <section class="user_profile">
-    <div class="sidenav">
-      <a href="#" class="sidenav_text">Update Profile</a>
-      <a href="./activity.html" class="sidenav_text">Notifications</a>
-      <a href="./stat.html" class="sidenav_text">Stat</a>
-    </div>
+  <div class="second_nav"></div>
 
-    <div class="main">
-      <div class="container">
-        <div class="user_photo">
-          <img src="img/gloves.jpeg" alt="userphotos">
-        </div>
-        <div class="user_bio">
-          <h4 class="user_name">John Done</h4>
-          <p class="user_email">johndoe@me.com</p>
-          <p class="user_about">I love to sing and to dance alot.</p>
-        </div>
+  <div class="main">
+    <div class="container-left">
+      <div class="user_photo">
+        <img src="img/gloves.jpeg" alt="userphotos">
       </div>
-      <div class="container">
-        <div class="card">
-          <p>Add a table for checking number of resolved and unresolved records.</p>
-        </div>    
+      <div class="user_bio">
+        <h4 class="user_name">John Done</h4>
+        <p class="user_email">johndoe@me.com</p>
+        <p class="user_about">I love to sing and to dance alot.</p>
       </div>
     </div>
-  </section>
+    <div class="container-right">
+      <div class="total">
+        <table>
+          <tr>
+            <th>Incident</th>
+            <th>Responses</th>
+          </tr>
+          <tr>
+            <td>Number of resolved incidences</td>
+            <th>5</th>
+            </tr>
+            <tr>
+              <td>Number of incidences in draft</td>
+              <th>3</th>
+            </tr>
+            <tr>
+              <td>incidences in investigation</td>
+              <th>2</th>
+            </tr>
+            <tr>
+              <td>Rejeectd incidences</td>
+              <th>1</th>
+            </tr>
+            <tr>
+              <td>Total incidences</td>
+              <th>12</th>
+            </tr>
+          </table>  
+      </div>   
+    </div>
+  </div>
   
   <script src="js/user-home.js">
   </script>

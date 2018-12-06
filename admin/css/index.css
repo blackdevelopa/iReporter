@@ -1,7 +1,7 @@
 body {
   font-family: Georgia, Times, 'Times New Roman', serif;
-  background: darkolivegreen;
-  color: #fbf5de;
+  background: #000;
+  color: #fff;
   overflow: hidden;
 }
 
@@ -16,7 +16,6 @@ body {
 
 .main .logo .logo_text {
   font-weight: 800;
-  font-family: cursive;
   font-size: 45px;
 }
 
@@ -35,8 +34,7 @@ body {
   padding: 8px;
   border-radius: 6px;
   text-align: center;
-  color: #fbf5de;
-  background: none;
+  color: #000000;
 }
 
 .register .button {
@@ -45,15 +43,12 @@ body {
   margin: 10px;
   border-radius: 6px;
   background: none;
+  color: #fff;
+  cursor: pointer;
 }
 
 .register .button:hover {
-  background: #613;
-}
-
-.register .create_account {
-  color: #fbf5de;
-  text-decoration: none;
+  color: #f28500;
 }
 
 .login_links {
@@ -64,19 +59,21 @@ body {
 }
 
 .login_links a:hover {
-  color: #613;
+  color: #f28500;
 }
 
 .links {
-  color: #fbf5de;
+  color: #ffff;
   text-decoration: none;
 }
 
 .footer {
+  bottom: 0;
+  position: fixed;
   margin-top: 25px;
   text-align: center;
 }
 
 .footer a:hover {
-  color: #613;
+  color: #f28500;
 }

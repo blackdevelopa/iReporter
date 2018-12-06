@@ -27,56 +27,65 @@
     </div>
   </div>
 
-  <div class="new-text">
-    <div class="content">
-      <div class="text">
-        <div class="title">
-          <input class="title" type="text" placeholder="Add intervention title">
+  <div class="add-incident">
+    <a class="btn-float">
+      <p id="openbtn" class="open-btn"><strong>+</strong></p>
+    </a>
+  </div>
+  <div class="modal-overlay" id="modal-overlay"></div>
+  
+
+  <div id="modal" class="new-incident">
+    <span id="closebtn" class="close-btn">&times;</span>
+    <div class="new-text">
+      <div class="content">
+        <div class="text">
+          <div class="title">
+            <input class="title" type="text" placeholder="Add red-flag title">
+          </div>
+          <div class="description">
+            <input class="description" type="text" placeholder="Add red-flag description">
+          </div>
+          <div class="location">
+            <input class="cord" type="number" placeholder="Enter Longitude">
+            <input class="cord" type="number" placeholder="Enter Latitude">
+          </div>
         </div>
-        <div class="description">
-          <input class="description" type="text" placeholder="Add intervention description">
+        <div class="upload">
+          <input class="btn" type="file" name="image" accept="image/*">
         </div>
       </div>
-      <div class="upload">
-        <input type="file" name="image" accept="image/*">
+      <div class="modal-button">
+        <button class="button" type="button">Share!</button>
       </div>
     </div>
-    <button class="button" type="button">Share!</button>
+    <div class="error"></div>
   </div>
-    
   <div class="main">
     <div class="container">
       <div class="card">
         <h4>FGN is responsible for the blue skies</h4>
         <p>I have evidence of the federal government giving large sum of monies to the weather man to ensure the sky remains blue...</p>
         <button class="button" type="button">Read more</button>
+        <button class="button" type="button">Edit</button>
+        <button class="button" type="button">Delete</button>
+        <button class="disabled-button" type="button">Draft</button>
       </div>
       <div class="card">
         <h4>FGN is responsible for the blue skies</h4>
         <p>I have evidence of the federal government giving large sum of monies to the weather man to ensure the sky remains blue...</p>
         <button class="button" type="button">Read more</button>
+        <button class="button" type="button">Edit</button>
+        <button class="button" type="button">Delete</button>
+        <button class="disabled-button" type="button">Draft</button>
       </div>
       <div class="card">
         <h4>FGN is responsible for the blue skies</h4>
         <p>I have evidence of the federal government giving large sum of monies to the weather man to ensure the sky remains blue...</p>
         <button class="button" type="button">Read more</button>
-      </div>
-    </div>
-    <div class="container">
-      <div class="card">
-        <h4>FGN is responsible for the blue skies</h4>
-        <p>I have evidence of the federal government giving large sum of monies to the weather man to ensure the sky remains blue...</p>
-        <button class="button" type="button">Read more</button>
-      </div>
-      <div class="card">
-        <h4>FGN is responsible for the blue skies</h4>
-        <p>I have evidence of the federal government giving large sum of monies to the weather man to ensure the sky remains blue...</p>
-        <button class="button" type="button">Read more</button>
-      </div>
-      <div class="card">
-        <h4>FGN is responsible for the blue skies</h4>
-        <p>I have evidence of the federal government giving large sum of monies to the weather man to ensure the sky remains blue...</p>
-        <button class="button" type="button">Read more</button>
+        <button class="button" type="button">Edit</button>
+        <button class="button" type="button">Delete</button>
+        <button class="disabled-button" type="button">Draft</button>
       </div>
     </div>
     <div class="container">
@@ -84,16 +93,51 @@
         <h4>FGN is responsible for the blue skies</h4>
         <p>I have evidence of the federal government giving large sum of monies to the weather man to ensure the sky remains blue...</p>
         <button class="button" type="button">Read more</button>
+        <button class="button" type="button">Edit</button>
+        <button class="button" type="button">Delete</button>
+        <button class="disabled-button" type="button">Draft</button>
       </div>
       <div class="card">
         <h4>FGN is responsible for the blue skies</h4>
         <p>I have evidence of the federal government giving large sum of monies to the weather man to ensure the sky remains blue...</p>
         <button class="button" type="button">Read more</button>
+        <button class="button" type="button">Edit</button>
+        <button class="button" type="button">Delete</button>
+        <button class="disabled-button" type="button">Draft</button>
       </div>
       <div class="card">
         <h4>FGN is responsible for the blue skies</h4>
         <p>I have evidence of the federal government giving large sum of monies to the weather man to ensure the sky remains blue...</p>
         <button class="button" type="button">Read more</button>
+        <button class="button" type="button">Edit</button>
+        <button class="button" type="button">Delete</button>
+        <button class="disabled-button" type="button">Draft</button>
+      </div>
+    </div>
+    <div class="container">
+      <div class="card">
+        <h4>FGN is responsible for the blue skies</h4>
+        <p>I have evidence of the federal government giving large sum of monies to the weather man to ensure the sky remains blue...</p>
+        <button class="button" type="button">Read more</button>
+        <button class="button" type="button">Edit</button>
+        <button class="button" type="button">Delete</button>
+        <button class="disabled-button" type="button">Draft</button>
+      </div>
+      <div class="card">
+        <h4>FGN is responsible for the blue skies</h4>
+        <p>I have evidence of the federal government giving large sum of monies to the weather man to ensure the sky remains blue...</p>
+        <button class="button" type="button">Read more</button>
+        <button class="button" type="button">Edit</button>
+        <button class="button" type="button">Delete</button>
+        <button class="disabled-button" type="button">Draft</button>
+      </div>
+      <div class="card">
+        <h4>FGN is responsible for the blue skies</h4>
+        <p>I have evidence of the federal government giving large sum of monies to the weather man to ensure the sky remains blue...</p>
+        <button class="button" type="button">Read more</button>
+        <button class="button" type="button">Edit</button>
+        <button class="button" type="button">Delete</button>
+        <button class="disabled-button" type="button">Draft</button>
       </div>
     </div>
   </div>

@@ -197,14 +197,17 @@ img {
   cursor: pointer;
 }
 
-.disabled-button {
-  padding: 10px;
-  border: none;
-  border-radius: none;
-}
-
 .button:hover {
   border: 2px solid #f28500;
+}
+
+.select-button {
+  height: 35px;
+  background: #fff;
+}
+
+.select-button:hover {
+  border: 1px solid #f28500;
 }
 
 @media only screen and (min-width: 768px) {
