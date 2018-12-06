@@ -5,7 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 // Default incident details
 
-var IncidentModel = [{
+var Incident = [{
   id: 1,
   createdOn: new Date().toLocaleString(),
   createdBy: 1,
@@ -27,4 +27,4 @@ var IncidentModel = [{
   comment: 'The pedestrian bridge is broken'
 }];
 
-exports.default = IncidentModel;
+exports.default = Incident;
