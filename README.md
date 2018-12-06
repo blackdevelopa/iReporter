@@ -1,6 +1,4 @@
-[![Build Status](https://travis-ci.com/blackdevelopa/iReporter.svg?branch=develop)](https://travis-ci.com/blackdevelopa/iReporter) <a href="https://codeclimate.com/github/blackdevelopa/iReporter/maintainability"><img src="https://api.codeclimate.com/v1/badges/c6341af171d23107cbc1/maintainability" /></a> <a href="https://codeclimate.com/github/blackdevelopa/iReporter/test_coverage"><img src="https://api.codeclimate.com/v1/badges/c6341af171d23107cbc1/test_coverage" /></a>
-
-# iReporter
+# iReporter [![Build Status](https://travis-ci.com/blackdevelopa/iReporter.svg?branch=develop)](https://travis-ci.com/blackdevelopa/iReporter) <a href="https://codeclimate.com/github/blackdevelopa/iReporter/maintainability"><img src="https://api.codeclimate.com/v1/badges/c6341af171d23107cbc1/maintainability" /></a> <a href="https://codeclimate.com/github/blackdevelopa/iReporter/test_coverage"><img src="https://api.codeclimate.com/v1/badges/c6341af171d23107cbc1/test_coverage" /></a>
 
 ### Introduction
 iReporter seeks to provide a platform that allows users report corruption cases and interventions to designated authorities.
@@ -26,13 +24,26 @@ iReporter seeks to provide a platform that allows users report corruption cases 
 * `npm run test` to run test.
 * Connect to the API using Postman on port 3000.
 
+### Relevant Links
+* [Heroku App](https://ireporter234.herokuapp.com/)
+* [GH-Pages]()
+* [Pivotal Tracker](https://www.pivotaltracker.com/n/projects/2226848)
+
 ### API Endpoints
 | HTTP Verbs | Endpoints | Action |
 | --- | --- | --- |
-| GET | /api/v1/incidents | To get all incidents |
 | GET | /api/v1/redflags | To get all redflags |
 | GET | /api/v1/interventions | To get all interventions |
 | GET | /api/v1/redflags/:id | To get specific redflags |
+| GET | /api/v1/interventions/:id | To get specific interventions |
+| POST | /api/v1/interventions/ | To post interventions |
+| POST | /api/v1/redflags/ | To post redflags |
+| PATCH | /api/v1/redflags/:id/location | To edit redflag locations |
+| PATCH | /api/v1/interventions/:id/location | To edit intervention locations |
+| PATCH | /api/v1/interventions/:id/comments | To edit intervention comments |
+| PATCH | /api/v1/redflags/:id/comments | To edit redflags comments |
+| DELETE | /api/v1/redflags/:id | To delete specific redflag |
+| DELETE | /api/v1/interventions/:id | To delete specific interventions |
 
 
 ### Author

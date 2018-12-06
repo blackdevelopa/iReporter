@@ -5,7 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 // Dummy user details
 
-var users = [{
+var User = [{
   id: 1,
   firstname: 'Sylva',
   lastname: 'Elendu',
@@ -29,4 +29,4 @@ var users = [{
   password: '1234'
 }];
 
-exports.default = users;
+exports.default = User;

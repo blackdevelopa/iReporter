@@ -12,9 +12,9 @@ var _morgan = require('morgan');
 
 var _morgan2 = _interopRequireDefault(_morgan);
 
-var _main = require('./src/routes/main');
+var _router = require('./src/routes/router');
 
-var _main2 = _interopRequireDefault(_main);
+var _router2 = _interopRequireDefault(_router);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -24,9 +24,9 @@ app.use(_bodyParser2.default.json());
 app.use(_bodyParser2.default.urlencoded({ extended: false }));
 app.use((0, _morgan2.default)('dev'));
 
-var port = 3000;
+var port = process.env.PORT || 3000;
 
-app.use('/api/v1/', _main2.default);
+app.use('/api/v1/', _router2.default);
 
 app.get('/', function (req, res) {
   res.status(200).json({

@@ -4,115 +4,61 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="css/record.css">
+  <link rel="stylesheet" href="./css/members.css">
   <title>iReporter</title>
 </head>
 <body>
   <div class="navbar">
     <div class="logo">
-      <a href="user-home.html" class="navbar_text" >iReporter</a>
+      <a href="#" class="navbar_text" >iReporter</a>
     </div>
     <div class="menu">
-      <a class="navbar_text" href="../index.html">Log Out</a>
-      <a href="./userprofile.html" class="navbar_text">Profile</a>
+      <a class="navbar_text" href="./admin-login.html">Log Out</a>
     </div>
   </div>
   
   <div class="second_nav">
     <div class="redflag">
-      <a href="user-home.html" class="record">Red-flag</a>
+      <a href="./individual-member.html" class="record">Red-flag</a>
     </div>
     <div class="intervention">
-      <a href="user-intervention.html" class="record">Intervention</a>
+      <a href="./individual-member-intervention.html" class="record">Intervention</a>
     </div>
   </div>
-
-  <div class="add-incident">
-    <a class="btn-float">
-      <p id="openbtn" class="open-btn"><strong>+</strong></p>
-    </a>
-  </div>
-  <div class="modal-overlay" id="modal-overlay"></div>
-  
-
-  <div id="modal" class="new-incident">
-    <span id="closebtn" class="close-btn">&times;</span>
-    <div class="new-text">
-      <div class="content">
-        <div class="text">
-          <div class="title">
-            <input class="title" type="text" placeholder="Enter Your Title">
-          </div>
-          <div class="description">
-            <input class="description" type="text" placeholder="Add red-flag description">
-          </div>
-          <div class="location">
-            <input class="cord" type="number" placeholder="Enter Longitude">
-            <input class="cord" type="number" placeholder="Enter Latitude">
-          </div>
-        </div>
-        <div class="upload">
-          <input class="btn" type="file" name="image" accept="image/*">
-        </div>
-      </div>
-      <div class="modal-button">
-        <button class="button" type="button">Share!</button>
-      </div>
-    </div>
-    <div class="error"></div>
-  </div>
-    
   <div class="main">
     <div class="container">
       <div class="card">
         <h4>FGN is responsible for the blue skies</h4>
         <p>I have evidence of the federal government giving large sum of monies to the weather man to ensure the sky remains blue...</p>
         <button class="button" type="button">Read more</button>
-        <button class="button" type="button">Edit</button>
-        <button class="button" type="button">Delete</button>
-        <button class="disabled-button" type="button">Draft</button>
+        <select class="select-button">
+          <option value="draft">Draft</option>
+          <option value="under-investigation">Investigation</option>
+          <option value="rejected">Rejected</option>
+          <option value="resolved">Resolved</option>
+        </select>
       </div>
       <div class="card">
         <h4>FGN is responsible for the blue skies</h4>
         <p>I have evidence of the federal government giving large sum of monies to the weather man to ensure the sky remains blue...</p>
         <button class="button" type="button">Read more</button>
-        <button class="button" type="button">Edit</button>
-        <button class="button" type="button">Delete</button>
-        <button class="disabled-button" type="button">Draft</button>
+        <select class="select-button">
+          <option value="draft">Draft</option>
+          <option value="under-investigation">Investigation</option>
+          <option value="rejected">Rejected</option>
+          <option value="resolved">Resolved</option>
+        </select>
       </div>
       <div class="card">
         <h4>FGN is responsible for the blue skies</h4>
         <p>I have evidence of the federal government giving large sum of monies to the weather man to ensure the sky remains blue...</p>
         <button class="button" type="button">Read more</button>
-        <button class="button" type="button">Edit</button>
-        <button class="button" type="button">Delete</button>
-        <button class="disabled-button" type="button">Draft</button>
-      </div>
-    </div>
-    <div class="container">
-      <div class="card">
-        <h4>FGN is responsible for the blue skies</h4>
-        <p>I have evidence of the federal government giving large sum of monies to the weather man to ensure the sky remains blue...</p>
-        <button class="button" type="button">Read more</button>
-        <button class="button" type="button">Edit</button>
-        <button class="button" type="button">Delete</button>
-        <button class="disabled-button" type="button">Draft</button>
-      </div>
-      <div class="card">
-        <h4>FGN is responsible for the blue skies</h4>
-        <p>I have evidence of the federal government giving large sum of monies to the weather man to ensure the sky remains blue...</p>
-        <button class="button" type="button">Read more</button>
-        <button class="button" type="button">Edit</button>
-        <button class="button" type="button">Delete</button>
-        <button class="disabled-button" type="button">Draft</button>
-      </div>
-      <div class="card">
-        <h4>FGN is responsible for the blue skies</h4>
-        <p>I have evidence of the federal government giving large sum of monies to the weather man to ensure the sky remains blue...</p>
-        <button class="button" type="button">Read more</button>
-        <button class="button" type="button">Edit</button>
-        <button class="button" type="button">Delete</button>
-        <button class="disabled-button" type="button">Draft</button>
+        <select class="select-button">
+          <option value="draft">Draft</option>
+          <option value="under-investigation">Investigation</option>
+          <option value="rejected">Rejected</option>
+          <option value="resolved">Resolved</option>
+        </select>
       </div>
     </div>
     <div class="container">
@@ -120,30 +66,74 @@
         <h4>FGN is responsible for the blue skies</h4>
         <p>I have evidence of the federal government giving large sum of monies to the weather man to ensure the sky remains blue...</p>
         <button class="button" type="button">Read more</button>
-        <button class="button" type="button">Edit</button>
-        <button class="button" type="button">Delete</button>
-        <button class="disabled-button" type="button">Draft</button>
+        <select class="select-button">
+          <option value="draft">Draft</option>
+          <option value="under-investigation">Investigation</option>
+          <option value="rejected">Rejected</option>
+          <option value="resolved">Resolved</option>
+        </select>
       </div>
       <div class="card">
         <h4>FGN is responsible for the blue skies</h4>
         <p>I have evidence of the federal government giving large sum of monies to the weather man to ensure the sky remains blue...</p>
         <button class="button" type="button">Read more</button>
-        <button class="button" type="button">Edit</button>
-        <button class="button" type="button">Delete</button>
-        <button class="disabled-button" type="button">Draft</button>
+        <select class="select-button">
+          <option value="draft">Draft</option>
+          <option value="under-investigation">Investigation</option>
+          <option value="rejected">Rejected</option>
+          <option value="resolved">Resolved</option>
+        </select>
       </div>
       <div class="card">
         <h4>FGN is responsible for the blue skies</h4>
         <p>I have evidence of the federal government giving large sum of monies to the weather man to ensure the sky remains blue...</p>
         <button class="button" type="button">Read more</button>
-        <button class="button" type="button">Edit</button>
-        <button class="button" type="button">Delete</button>
-        <button class="disabled-button" type="button">Draft</button>
+        <select class="select-button">
+          <option value="draft">Draft</option>
+          <option value="under-investigation">Investigation</option>
+          <option value="rejected">Rejected</option>
+          <option value="resolved">Resolved</option>
+        </select>
+      </div>
+    </div>
+    <div class="container">
+      <div class="card">
+        <h4>FGN is responsible for the blue skies</h4>
+        <p>I have evidence of the federal government giving large sum of monies to the weather man to ensure the sky remains blue...</p>
+        <button class="button" type="button">Read more</button>
+        <select class="select-button">
+          <option value="draft">Draft</option>
+          <option value="under-investigation">Investigation</option>
+          <option value="rejected">Rejected</option>
+          <option value="resolved">Resolved</option>
+        </select>
+      </div>
+      <div class="card">
+        <h4>FGN is responsible for the blue skies</h4>
+        <p>I have evidence of the federal government giving large sum of monies to the weather man to ensure the sky remains blue...</p>
+        <button class="button" type="button">Read more</button>
+        <select class="select-button">
+          <option value="draft">Draft</option>
+          <option value="under-investigation">Investigation</option>
+          <option value="rejected">Rejected</option>
+          <option value="resolved">Resolved</option>
+        </select>
+      </div>
+      <div class="card">
+        <h4>FGN is responsible for the blue skies</h4>
+        <p>I have evidence of the federal government giving large sum of monies to the weather man to ensure the sky remains blue...</p>
+        <button class="button" type="button">Read more</button>
+        <select class="select-button">
+          <option value="draft">Draft</option>
+          <option value="under-investigation">Investigation</option>
+          <option value="rejected">Rejected</option>
+          <option value="resolved">Resolved</option>
+        </select>
       </div>
     </div>
   </div>
 
-  <script src="js/user-home.js">
+  <script src="#">
   </script>
 </body>
 </html>
