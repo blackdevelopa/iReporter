@@ -138,20 +138,26 @@ const IncidentController = {
   },
 
   /**
-   * delete specific Redflags
+   * delete specific Redflag
    * @param {object} req The request Object from the user
    * @param {object} res The response Object from the user
   */
 
   deleteSingleRedflag(req, res) {
     const redflagId = parseInt(req.params.id);
+    const deleteRedflag = [];
     IncidentModel.forEach((incidents) => {
-      const deleteRedflag = [];
       if (incidents.id === redflagId) {
         deleteRedflag.splice(redflagId);
+      }
+      if (deleteRedflag) {
         return res.status(201).json({ message: 'redflag deleted', deleteRedflag});
       }
     });
+
+    if (!deleteRedflag) {
+      return res.status(404).json({ message: 'This Id does not exist in the database'});
+    }
   },
 
   /**

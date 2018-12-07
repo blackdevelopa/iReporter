@@ -5,13 +5,12 @@
   "main": "server/app.js",
   "scripts": {
     "dev": "nodemon ./server/app.js --exec babel-node",
-    "test": "nyc mocha --timeout 10000 --require babel-register ./test/incident.spec.js --exit",
+    "test": "nyc --reporter=text mocha --timeout 10000 --require babel-register ./test/incident.spec.js --exit",
     "coverage": "nyc report --reporter=text-lcov --reporter=lcov | coveralls",
     "build": "babel -d ./build ./server",
     "prebuild": "rm -rf build/*",
     "start": "node ./build/app.js",
-    "prestart": "npm run build",
-    "coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls"
+    "prestart": "npm run build"
   },
   "repository": {
     "type": "git",
