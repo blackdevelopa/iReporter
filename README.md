@@ -1,4 +1,4 @@
-# iReporter [![Build Status](https://travis-ci.com/blackdevelopa/iReporter.svg?branch=develop)](https://travis-ci.com/blackdevelopa/iReporter) <a href="https://codeclimate.com/github/blackdevelopa/iReporter/maintainability"><img src="https://api.codeclimate.com/v1/badges/c6341af171d23107cbc1/maintainability" /></a> <a href="https://codeclimate.com/github/blackdevelopa/iReporter/test_coverage"><img src="https://api.codeclimate.com/v1/badges/c6341af171d23107cbc1/test_coverage" /></a>
+# iReporter [![Build Status](https://travis-ci.com/blackdevelopa/iReporter.svg?branch=develop)](https://travis-ci.com/blackdevelopa/iReporter) <a href="https://codeclimate.com/github/blackdevelopa/iReporter/maintainability"><img src="https://api.codeclimate.com/v1/badges/c6341af171d23107cbc1/maintainability" /></a> [![Coverage Status](https://coveralls.io/repos/github/blackdevelopa/iReporter/badge.svg?branch=develop)](https://coveralls.io/github/blackdevelopa/iReporter?branch=develop)
 
 ### Introduction
 iReporter seeks to provide a platform that allows users report corruption cases and interventions to designated authorities.
