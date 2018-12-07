@@ -12,7 +12,7 @@ const IncidentController = {
       const redflags = [];
       if (incidents.type === 'redflag') {
         redflags.push(incidents);
-        return res.status(200).json(redflags);
+        return res.status(200).json({ message: 'all redflags', redflags: redflags });
       }
     });
   },
@@ -40,14 +40,17 @@ const IncidentController = {
   */
 
   getSingleRedflag(req, res) {
-    const redflagId = parseInt(req.params.id);    
+    const redflagId = parseInt(req.params.id);
+    const singleRedflag = [];    
     IncidentModel.forEach((incidents) => {
-      const singleRedflag = [];
-      if (incidents.id === redflagId) {
+      if (incidents.id === redflagId && incidents.type === 'redflag') {
         singleRedflag.push(incidents);
-        return res.status(200).json({ message: 'Specific redflag', singleRedflag });
       }
     });
+    if (singleRedflag.length >= 1) {
+      return res.status(200).json({ message: 'Specific redflag', singleRedflag });
+    }
+    return res.status(404).json({ message: 'This Id does not exist in the database'});
   },
 
   /**
@@ -58,13 +61,16 @@ const IncidentController = {
 
   getSingleIntervention(req, res) {
     const interventionId = parseInt(req.params.id);
+    const singleIntervention = [];
     IncidentModel.forEach((incidents) => {
-      const singleIntervention = [];
-      if (incidents.id === interventionId) {
+      if (incidents.id === interventionId && incidents.type === 'intervention') {
         singleIntervention.push(incidents);
-        return res.status(200).json({ message: 'Specific intervention', singleIntervention });
       }
     });
+    if (singleIntervention.length >= 1) {
+      return res.status(200).json({ message: 'Specific intervention', singleIntervention });
+    }
+    return res.status(404).json({ message: 'This Id does not exist in the database'});
   },
 
   /**

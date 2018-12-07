@@ -57,13 +57,37 @@ describe('GET redflag by id', () => {
   });
 });
 
+describe('GET redflag by id', () => {
+  it('should GET an error response', (done) => {
+    chai.request(app)
+      .get('/api/v1/redflags/integer')
+      .end((err, res) => {
+        res.should.have.status(404);
+        res.should.be.json;
+        done();
+      });
+  });
+});
+
 
 describe('GET interventions by id', () => {
   it('should GET specifc interventions', (done) => {
     chai.request(app)
-      .get('/api/v1/interventions/1')
+      .get('/api/v1/interventions/2')
       .end((err, res) => {
         res.should.have.status(200);
+        res.should.be.json;
+        done();
+      });
+  });
+});
+
+describe('GET interventions by id', () => {
+  it('should GET an error response', (done) => {
+    chai.request(app)
+      .get('/api/v1/interventions/interger')
+      .end((err, res) => {
+        res.should.have.status(404);
         res.should.be.json;
         done();
       });
