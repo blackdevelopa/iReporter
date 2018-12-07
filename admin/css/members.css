@@ -210,6 +210,23 @@ img {
   border: 1px solid #f28500;
 }
 
+.footer a:hover {
+  color: #f28500;
+}
+
+.footer-links {
+  display: inline-block;
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer {
+  text-align: center;
+  color: #fff;
+  padding-top: 5px;
+  background: #000;
+}
+
 @media only screen and (min-width: 768px) {
   .main {
     display: flex;

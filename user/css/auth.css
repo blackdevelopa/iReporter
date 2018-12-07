@@ -11,7 +11,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 80vh;
 }
 
 .main .logo .logo_text {
@@ -63,12 +63,13 @@ body {
 }
 
 .links {
-  color: #ffff;
+  color: #fff;
   text-decoration: none;
 }
 
 .footer {
   bottom: 0;
+  width: 100%;
   position: fixed;
   margin-top: 25px;
   text-align: center;
@@ -76,4 +77,11 @@ body {
 
 .footer a:hover {
   color: #f28500;
+}
+
+.footer-links {
+  display: inline-block;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
 }

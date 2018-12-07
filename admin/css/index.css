@@ -11,7 +11,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 80vh;
 }
 
 .main .logo .logo_text {
@@ -58,7 +58,7 @@ body {
   text-align: center;
 }
 
-.login_links a:hover {
+.links:hover {
   color: #f28500;
 }
 
@@ -70,10 +70,13 @@ body {
 .footer {
   bottom: 0;
   position: fixed;
-  margin-top: 25px;
+  width: 100%;
   text-align: center;
 }
 
-.footer a:hover {
-  color: #f28500;
+.footer-links {
+  text-align: center;
+  display: inline-block;
+  color: #fff;
+  text-decoration: none;
 }

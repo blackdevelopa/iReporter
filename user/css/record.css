@@ -118,7 +118,6 @@ body {
 }
 
 .new-text {
-  display: flex;
   flex-direction: column;
   margin: 2% 5%;
   padding-bottom: 50px;
@@ -205,6 +204,22 @@ img {
 
 .button:hover {
   border: 2px solid #f28500;
+}
+
+.footer {
+  text-align: center;
+  color: #fff;
+  padding-top: 5px;
+  background: #000;
+}
+.footer a:hover {
+  color: #f28500;
+}
+
+.footer-links {
+  display: inline-block;
+  color: #fff;
+  text-decoration: none;
 }
 
 @media only screen and (min-width: 768px) {
