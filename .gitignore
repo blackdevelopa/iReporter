@@ -64,3 +64,5 @@ typings/
 
 .coveralls.yml
 .package-lock.json
+package-lock.json
+.build
