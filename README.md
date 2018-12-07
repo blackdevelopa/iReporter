@@ -26,7 +26,7 @@ iReporter seeks to provide a platform that allows users report corruption cases 
 
 ### Relevant Links
 * [Heroku App](https://ireporter234.herokuapp.com/)
-* [GH-Pages]()
+* [GH-Pages](https://blackdevelopa.github.io/iReporter/)
 * [Pivotal Tracker](https://www.pivotaltracker.com/n/projects/2226848)
 
 ### API Endpoints
