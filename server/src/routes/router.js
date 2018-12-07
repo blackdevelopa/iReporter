@@ -1,5 +1,5 @@
 import express from 'express';
-import IncidentController from '../controllers/IncidentController';
+import IncidentController from '../controllers/Controller';
 
 const router = express.Router();
 
