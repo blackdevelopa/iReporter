@@ -1,4 +1,4 @@
-import IncidentModel from '../models/IncidentModel';
+import IncidentModel from '../models/incidentModel';
 
 /**
  * Get All Red-flags
@@ -23,7 +23,7 @@ const IncidentController = {
  * @param {object} res The response Object from the user
  */
 
-getAllInterventions(req, res) {
+  getAllInterventions(req, res) {
     IncidentModel.forEach((incidents) => {
       const interventions = [];
       if (incidents.type === 'intervention') {
@@ -89,15 +89,15 @@ getAllInterventions(req, res) {
    * @param {object} res The response Object from the user
   */
 
- updateSingleInterventionLocation(req, res) {
-  const interventionId = parseInt(req.params.id);
-  IncidentModel.forEach((incidents) => {
-    if (incidents.id === interventionId) {
-      incidents.location = req.body.location;
-      return res.status(201).json({ message: 'updated location', location: incidents.location});
-    }
-  });
-},
+  updateSingleInterventionLocation(req, res) {
+    const interventionId = parseInt(req.params.id);
+    IncidentModel.forEach((incidents) => {
+      if (incidents.id === interventionId) {
+        incidents.location = req.body.location;
+        return res.status(201).json({ message: 'updated location', location: incidents.location});
+      }
+    });
+    },
 
   /**
    * update Redflags comment
@@ -121,15 +121,15 @@ getAllInterventions(req, res) {
    * @param {object} res The response Object from the user
   */
 
- updateSingleInterventionComment(req, res) {
-  const interventionId = parseInt(req.params.id);
-  IncidentModel.forEach((incidents) => {
-    if (incidents.id === interventionId) {
-      incidents.comment = req.body.comment;
-      return res.status(201).json({ message: 'updated comment', comment: incidents.comment});
-    }
-  });
-},
+  updateSingleInterventionComment(req, res) {
+    const interventionId = parseInt(req.params.id);
+    IncidentModel.forEach((incidents) => {
+      if (incidents.id === interventionId) {
+        incidents.comment = req.body.comment;
+        return res.status(201).json({ message: 'updated comment', comment: incidents.comment});
+      }
+    });
+  },
 
   /**
    * delete specific Redflags

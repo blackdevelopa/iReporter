@@ -63,3 +63,6 @@ typings/
 .DS_Store
 
 .coveralls.yml
+.package-lock.json
+package-lock.json
+.build
