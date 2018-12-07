@@ -12,6 +12,7 @@
     <a class="logo">iReporter</a>
     <div class="menu">
       <a class="navbar_text" href="./admin-login.html">Logout</a>
+      <a class="navbar_text" href="./admin-dashboard.html">Dashboard</a>
     </div>
   </nav>
 
@@ -20,76 +21,84 @@
   </div>
 
   <div class="all-users">
-    <table>
-        <tr>
-          <th>S/N</th>
-          <th>Name</th>
-          <th>Profession</th>
-          <th>eMAil</th>
-          <th>Actions</th>
+    <table role="table">
+      <thead role="rowgroup">
+        <tr role="row">
+          <th role="header">S/N</th>
+          <th role="header">Name</th>
+          <th role="header">Profession</th>
+          <th role="header">eMail</th>
+          <th role="header">Actions</th>
         </tr>
-        <tr>
-          <td>1</td>
-          <td>Chika Onyia</td>
-          <td>Writer</td>
-          <td>chika@onyia.com</td>
-          <td><div>
-            <a href="../user/userprofile.html"><button type="button">View</button></a>
+      </thead>
+      <tbody role="rowgroup">
+        <tr role="row">
+          <td role="cell">1</td>
+          <td role="cell">Chika Onyia</td>
+          <td role="cell">Writer</td>
+          <td role="cell">chika@onyia.com</td>
+          <td role="cell">
+              <a href="./individual.html"><button type="button">View</button></a>
+              <a href="./individual-member.html"><button type="button">Change</button></a>
+          </td>
+        </tr>
+        <tr role="row">
+          <td role="cell">2</td>
+          <td role="cell">Hadiza Ibrahim</td>
+          <td role="cell">Journalist</td>
+          <td role="cell">hadiza@ibrahim.com</td>
+          <td role="cell">
+            <a href="./individual.html"><button type="button">View</button></a>
             <a href="./individual-member.html"><button type="button">Change</button></a>
-          </div></td>
+          </td>
         </tr>
-        <tr>
-          <td>2</td>
-          <td>Hadiza Ibrahim</td>
-          <td>Journalist</td>
-          <td>hadiza@ibrahim.com</td>
-          <td><div>
-              <a href="../user/userprofile.html"><button type="button">View</button></a>
+        <tr role="row">
+          <td role="cell">3</td>
+          <td role="cell">Mike Alabi</td>
+          <td role="cell">Entertainer</td>
+          <td role="cell">mike@alabi.com</td>
+          <td role="cell">
+            <a href="./individual.html"><button type="button">View</button></a>
             <a href="./individual-member.html"><button type="button">Change</button></a>
-            </div></td>
+          </td>
         </tr>
-        <tr>
-          <td>3</td>
-          <td>Mike Alabi</td>
-          <td>Entertainer</td>
-          <td>mike@alabi.com</td>
-          <td><div>
-            <a href="../user/userprofile.html"><button type="button">View</button></a>
+        <tr role="row">
+          <td role="cell">4</td>
+          <td role="cell">Helen Benet</td>
+          <td role="cell">Software developer</td>
+          <td role="cell">helen@benet.com</td>
+          <td role="cell">
+            <a href="./individual.html"><button type="button">View</button></a>
             <a href="./individual-member.html"><button type="button">Change</button></a>
-            </div></td>
+          </td>
         </tr>
-        <tr>
-          <td>4</td>
-          <td>Helen Benet</td>
-          <td>Software developer</td>
-          <td>helen@benet.com</td>
-          <td><div>
-            <a href="../user/userprofile.html"><button type="button">View</button></a>
+        <tr role="row">
+          <td role="cell">5</td>
+          <td role="cell">Ishmeal Adeboye</td>
+          <td role="cell">Patriot</td>
+          <td role="cell">ishmeal@adebaye.com</td>
+          <td role="cell">
+            <a href="./individual.html"><button type="button">View</button></a>
             <a href="./individual-member.html"><button type="button">Change</button></a>
-            </div></td>
+          </td>
         </tr>
-        <tr>
-          <td>5</td>
-          <td>Ishmeal Adeboye</td>
-          <td>Patriot</td>
-          <td>ishmeal@adebaye.com</td>
-          <td><div>
-            <a href="../user/userprofile.html"><button type="button">View</button></a>
+        <tr role="row">
+          <td role="cell">6</td>
+          <td role="cell">Mo Roberts</td>
+          <td role="cell">Student</td>
+          <td role="cell">cmo@roberts.com</td>
+          <td role="cell">
+            <a href="./individual.html"><button type="button">View</button></a>
             <a href="./individual-member.html"><button type="button">Change</button></a>
-            </div></td>
+          </td>
         </tr>
-        <tr>
-          <td>6</td>
-          <td>Mo Roberts</td>
-          <td>Student</td>
-          <td>mo@roberts.com</td>
-          <td><div>
-            <a href="../user/userprofile.html"><button type="button">View</button></a>
-            <a href="./individual-member.html"><button type="button">Change</button></a>
-            </div></td>
-        </tr>
-      </table>
+      </tbody>
+    </table>
       </div>
+      <footer class="footer">
+        <p class="footer-links">Web Development project for cycle 39 | </p>
+        <a class="footer-links" href="www.github.com/blackdevelopa">Sylva Elendu</a>
+      </footer>
   <script src="js/user-home.js">
   </script>
 </body>

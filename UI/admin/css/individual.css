@@ -28,6 +28,7 @@ body {
   flex: 1;
   padding-left: 5%;
   font-size: 20px;
+  color: #000;
   text-decoration: none;
 }
 
@@ -99,7 +100,6 @@ tr:nth-child(even) {
 
 .footer-links {
   display: inline-block;
-  text-align: center;
   color: #fff;
   text-decoration: none;
 }
@@ -117,5 +117,11 @@ tr:nth-child(even) {
 @media only screen and (min-width: 768px) {
   .main {
     display: flex;
+  }
+  .main .container-left {
+    flex: 1;
+  }
+  .main .container-right {
+    flex: 1;
   }
 }

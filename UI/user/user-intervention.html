@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="css/record.css">
   <title>iReporter</title>
 </head>
-<body>
+<body onload="closeModal()">
   <div class="navbar">
     <div class="logo">
       <a href="user-home.html" class="navbar_text" >iReporter</a>
@@ -32,7 +32,9 @@
       <p id="openbtn" class="open-btn"><strong>+</strong></p>
     </a>
   </div>
-  <div class="modal-overlay" id="modal-overlay"></div>
+  <div class="modal-overlay" id="modal-overlay">
+    
+  </div>
   
 
   <div id="modal" class="new-incident">
@@ -61,6 +63,7 @@
     </div>
     <div class="error"></div>
   </div>
+  
   <div class="main">
     <div class="container">
       <div class="card">
@@ -141,6 +144,10 @@
       </div>
     </div>
   </div>
+  <footer class="footer">
+    <p class="footer-links">Web Development project for cycle 39 | </p>
+    <a class="footer-links" href="www.github.com/blackdevelopa">Sylva Elendu</a>
+  </footer>
 
   <script src="js/user-home.js">
   </script>
