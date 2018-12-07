@@ -98,3 +98,12 @@ body {
   color: #f28500;
   background: none;
 }
+
+.footer a:hover {
+  color: #f28500;
+}
+
+.footer-links {
+  color: #000;
+  text-decoration: none;
+}
