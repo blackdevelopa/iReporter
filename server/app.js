@@ -1,7 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import logger from 'morgan';
-import Routes from './src/routes/router';
+import indexRouter from './src/routes/indexRouter';
 
 const app = express();
 
@@ -11,19 +11,8 @@ app.use(logger('dev'));
 
 const port = process.env.PORT || 3000;
 
-app.use('/api/v1/', Routes);
+app.use('/', indexRouter);
 
-app.get('/', (req, res) => {
-  res.status(200).json({
-    message: 'Welcome to iReporter',
-  });
-});
-
-app.get('*', (req, res) => {
-  res.status(400).json({
-    message: 'Please see documentation for proper routes',
-  });
-});
 
 app.listen(port);
 
