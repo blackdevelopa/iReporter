@@ -80,7 +80,7 @@ td, th {
 
 .footer-links {
   display: inline-block;
-  color: #000;
+  color: #fff;
   text-align: center;
   text-decoration: none;
 }
@@ -90,6 +90,7 @@ td, th {
   text-align: center;
   position: fixed;
   width: 100%;
+  background: #000;
 }
 
 @media
