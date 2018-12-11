@@ -8,12 +8,15 @@ import IncidentModel from '../models/incidentModel';
 
 const IncidentController = {
   getAllRedflags(req, res) {
+    const redflags = [];
     IncidentModel.forEach((incidents) => {
-      const redflags = [];
       if (incidents.type === 'redflag') {
         redflags.push(incidents);
-        return res.status(200).json({ message: 'all redflags', redflags: redflags });
       }
+    });
+    return res.status(200).json({
+      status: 200,
+      data: redflags
     });
   },
 
@@ -24,12 +27,15 @@ const IncidentController = {
  */
 
   getAllInterventions(req, res) {
+    const interventions = [];
     IncidentModel.forEach((incidents) => {
-      const interventions = [];
       if (incidents.type === 'intervention') {
         interventions.push(incidents);
-        return res.status(200).json({ message: 'all interventions', interventions: interventions});
       }
+    });
+    return res.status(200).json({
+      status: 200,
+      data: interventions
     });
   },
 
@@ -41,16 +47,29 @@ const IncidentController = {
 
   getSingleRedflag(req, res) {
     const redflagId = parseInt(req.params.id);
-    const singleRedflag = [];    
+    if(!Number(req.params.id)) {
+      return res.status(400).json({
+        status: 400,
+        message: 'This Id is invalid'
+      });
+    };
+    const singleRedflag = [];
     IncidentModel.forEach((incidents) => {
-      if (incidents.id === redflagId && incidents.type === 'redflag') {
+      if (incidents.id === redflagId && 
+        incidents.type === 'redflag') {
         singleRedflag.push(incidents);
       }
     });
     if (singleRedflag.length >= 1) {
-      return res.status(200).json({ message: 'Specific redflag', singleRedflag });
+      return res.status(200).json({
+        status: 200,
+        data: singleRedflag
+      });
     }
-    return res.status(404).json({ message: 'This Id does not exist in the database'});
+    return res.status(404).json({
+      status: 404,
+      message: 'This Id does not exist in the database'
+    });
   },
 
   /**
@@ -59,19 +78,32 @@ const IncidentController = {
    * @param {object} res The response Object from the user
   */
 
-  getSingleIntervention(req, res) {
-    const interventionId = parseInt(req.params.id);
-    const singleIntervention = [];
-    IncidentModel.forEach((incidents) => {
-      if (incidents.id === interventionId && incidents.type === 'intervention') {
-        singleIntervention.push(incidents);
-      }
+ getSingleIntervention(req, res) {
+  const interventionId = parseInt(req.params.id);
+  if(!Number(req.params.id)) {
+    return res.status(400).json({
+      status: 400,
+      message: 'This Id is invalid'
     });
-    if (singleIntervention.length >= 1) {
-      return res.status(200).json({ message: 'Specific intervention', singleIntervention });
+  }
+  const intervention = [];
+  IncidentModel.forEach((incidents) => {
+    if (incidents.id === interventionId && 
+      incidents.type === 'intervention') {
+      intervention.push(incidents);
     }
-    return res.status(404).json({ message: 'This Id does not exist in the database'});
-  },
+  });
+  if (intervention.length >= 1) {
+    return res.status(200).json({
+      status: 200,
+      data: intervention
+    });
+  }
+  return res.status(404).json({
+    status: 404,
+    message: 'This Id does not exist in the database'
+  });
+},
 
   /**
    * Update Redflags location
@@ -79,14 +111,41 @@ const IncidentController = {
    * @param {object} res The response Object from the user
   */
 
-  updateSingleRedflagLocation(req, res) {
-    const redflagId = parseInt(req.params.id);
-    IncidentModel.forEach((incidents) => {
-      if (incidents.id === redflagId) {
-        incidents.location = req.body.location;
-        return res.status(201).json({ message: 'updated location', location: incidents.location});
-      }
+ updateSingleRedflagLocation(req, res) {
+  const redflagId = parseInt(req.params.id);
+  const newLocation = [];
+  IncidentModel.forEach((incidents) => {
+    if (incidents.id === redflagId && 
+        incidents.type === 'redflag') {
+      incidents.location = req.body.location;
+      newLocation.push(incidents.location)
+    }
+  });
+  if(!Number(redflagId)) {
+    return res.status(400).json({
+      status: 400,
+      message: 'The Id is invalid'
     });
+  }
+  if(!req.body.location) {
+    return res.status(400).json({
+      status: 400,
+      message: 'Please enter the new redflag location'
+    });
+  }
+  if(newLocation.length >= 1) {
+    return res.status(200).json({ 
+      status: 200,
+      data: [{
+        id: redflagId,
+        message: 'Updated red-flag record\'s location'
+      }]
+    });
+  }
+  return res.status(404).json({
+    status: 404,
+    message: 'This Id does not exist in the database'
+  });
   },
 
   /**
@@ -97,13 +156,40 @@ const IncidentController = {
 
   updateSingleInterventionLocation(req, res) {
     const interventionId = parseInt(req.params.id);
+    const newLocation = [];
+    if(!Number(req.params.id)) {
+      return res.status(400).json({
+        status: 400,
+        message: 'The Id is invalid'
+      });
+    }
+    if(!req.body.location) {
+      return res.status(400).json({
+        status: 400,
+        message: 'Please enter the new intervention location'
+      });
+    }
     IncidentModel.forEach((incidents) => {
-      if (incidents.id === interventionId) {
+      if (incidents.id === interventionId &&
+          incidents.type === 'intervention') {
         incidents.location = req.body.location;
-        return res.status(201).json({ message: 'updated location', location: incidents.location});
+        newLocation.push(incidents.location);
       }
     });
-    },
+    if (newLocation.length >= 1) {
+      return res.status(200).json({
+        status: 200,
+        data: [{
+          id: interventionId,
+          message: 'Updated intervention record\'s location'
+        }]
+      });
+    }
+    return res.status(404).json({ 
+      status: 404,
+      message: 'This Id does not exist in the database' 
+    });
+  },
 
   /**
    * update Redflags comment
@@ -111,14 +197,41 @@ const IncidentController = {
    * @param {object} res The response Object from the user
   */
 
-  updateSingleRedflagComment(req, res) {
-    const redflagId = parseInt(req.params.id);
-    IncidentModel.forEach((incidents) => {
-      if (incidents.id === redflagId) {
-        incidents.comment = req.body.comment;
-        return res.status(201).json({ message: 'updated comment', comment: incidents.comment});
-      }
+ updateSingleRedflagComment(req, res) {
+  const redflagId = parseInt(req.params.id);
+  const newComment = [];
+  if(!Number(req.params.id)) {
+    return res.status(400).json({
+      status: 400,
+      message: 'The Id is invalid'
     });
+  }
+  if(!req.body.comment) {
+    return res.status(400).json({
+      status: 400,
+      message: 'Please enter the new redflag comment'
+    });
+  }
+  IncidentModel.forEach((incidents) => {
+    if (incidents.id === redflagId &&
+        incidents.type === 'redflag') {
+      incidents.comment = req.body.comment;
+      newComment.push(incidents.location);
+    }
+  });
+  if (newComment.length >= 1) {
+    return res.status(200).json({
+      status: 200,
+      data: [{
+        id: redflagId,
+        message: 'Updated red-flag record\'s comment'
+      }]
+    });
+  }
+  return res.status(404).json({ 
+    status: 404,
+    message: 'This Id does not exist in the database'
+  });
   },
 
   /**
@@ -127,14 +240,41 @@ const IncidentController = {
    * @param {object} res The response Object from the user
   */
 
-  updateSingleInterventionComment(req, res) {
-    const interventionId = parseInt(req.params.id);
-    IncidentModel.forEach((incidents) => {
-      if (incidents.id === interventionId) {
-        incidents.comment = req.body.comment;
-        return res.status(201).json({ message: 'updated comment', comment: incidents.comment});
-      }
+ updateSingleInterventionComment(req, res) {
+  const interventionId = parseInt(req.params.id);
+  const newComment = [];
+  if(!Number(req.params.id)) {
+    return res.status(400).json({
+      status: 400,
+      message: 'The Id is invalid'
     });
+  }
+  if(!req.body.comment) {
+    return res.status(400).json({
+      status: 400,
+      message: 'Please enter the new intervention comment'
+    });
+  }
+  IncidentModel.forEach((incidents) => {
+    if (incidents.id === interventionId &&
+        incidents.type === 'intervention') {
+      incidents.comment = req.body.comment;
+      newComment.push(incidents.comment);
+    }
+  });
+  if (newComment.length >= 1) {
+    return res.status(200).json({
+      status: 200,
+      data: [{
+        id: interventionId,
+        message: 'Updated intervention record\'s comment'
+      }]
+    });
+  }
+  return res.status(404).json({ 
+    status: 404,
+    message: 'This Id does not exist in the database'
+  });
   },
 
   /**
@@ -145,12 +285,26 @@ const IncidentController = {
 
   deleteSingleRedflag(req, res) {
     const redflagId = parseInt(req.params.id);
+    if(!Number(req.params.id)) {
+      return res.status(400).json({
+        status: 404,
+        message: 'This Id is invalid'
+      });
+    }
+    const deleteRedflag = [];
     IncidentModel.forEach((incidents) => {
-      const deleteRedflag = [];
-      if (incidents.id === redflagId) {
-        deleteRedflag.splice(redflagId);
-        return res.status(201).json({ message: 'redflag deleted', deleteRedflag});
+      if (incidents.id === redflagId && 
+        incidents.type === 'redflag') {
+        deleteRedflag.push(incidents);
       }
+    });
+    IncidentModel.push(deleteRedflag);
+    return res.status(201).json({
+      status: 201,
+      data: [{
+        id: redflagId,
+        message: 'redflag deleted',
+      }]
     });
   },
 
@@ -160,16 +314,30 @@ const IncidentController = {
    * @param {object} res The response Object from the user
   */
 
- deleteSingleIntervention(req, res) {
-  const interventionId = parseInt(req.params.id);
-  IncidentModel.forEach((incidents) => {
-    const deleteIntervention = [];
-    if (incidents.id === interventionId) {
-      deleteIntervention.splice(interventionId);
-      return res.status(201).json({ message: 'intervention deleted', deleteIntervention});
+  deleteSingleIntervention(req, res) {
+    const interventionId = parseInt(req.params.id);
+    if(!Number(req.params.id)) {
+      return res.status(400).json({
+        status: 404,
+        message: 'This Id is invalid'
+      });
     }
-  });
-},
+    const deleteIntervention = [];
+    IncidentModel.forEach((incidents) => {
+      if (incidents.id === interventionId &&
+          incidents.type === 'intervention') {
+          deleteIntervention.splice(incidents);
+        }
+    });
+    IncidentModel.push(deleteIntervention);
+    return res.status(201).json({
+      status: 201,
+      data: [{
+        id: interventionId,
+        message: 'intervention deleted',
+      }]
+    });
+  },
 
   /**
    * create Redflags 
@@ -178,52 +346,67 @@ const IncidentController = {
   */
 
   createRedflag(req, res) {
-    const newRedflags = [];
+    const newRedflagId = [];
     IncidentModel.forEach((incidents) => {
-      const incidentsId = incidents.id++;
-      const newRedflag = req.body;
-      if (incidents.id === incidentsId) {
-        newRedflag.push(
-          createdOn,
-          createdBy,
-          type,
-          location,
-          status,
-          images,
-          videos,
-          comment
-        );
+      if (incidents.type === 'redflag') {
+        const redflagId = ++incidents.id;
+        newRedflagId.push(redflagId);
       }
     });
-    return res.status(201).json({ message: 'new redflag', newRedflags});
-  },
-
+    const newRedflag = {
+      id: ++newRedflagId.length,
+      createdBy: 1,
+      createdOn: new Date(),
+      type: 'redflag',
+      location: req.body.location,
+      status: 'draft',
+      images: req.body.file,
+      videos: req.body.videos,
+      comment: req.body.comment
+    };
+    IncidentModel.push(newRedflag);
+    return res.status(201).json({
+      status: 201,
+      data: [{
+        id: newRedflag.id,
+        message: 'Created red-flag record'
+      }]
+    });
+    },
   /**
    * create Interventions 
    * @param {object} req The request Object from the user
    * @param {object} res The response Object from the user
   */
 
- createIntervention(req, res) {
-  const newInterventions = [];
-  IncidentModel.forEach((incidents) => {
-    const incidentsId = incidents.id++;
-    const newIntervention = req.body;
-    if (incidents.id === incidentsId) {
-      newIntervention.push(
-        createdOn,
-        createdBy,
-        type,
-        location,
-        status,
-        images,
-        videos,
-        comment
-      );
-    }
-  });
-  return res.status(201).json({ message: 'new intervention', newInterventions});
-}
+  createIntervention(req, res) {
+    const newInterventionId = [];
+    IncidentModel.forEach((incidents) => {
+      if(incidents.type === 'intervention') {
+        const interventionId = ++incidents.id;
+        newInterventionId.push(interventionId);
+      }
+    });
+    const newIntervention = {
+      id: ++newInterventionId.length,
+      createdBy: 2,
+      createdOn: new Date(),
+      type: 'intervention',
+      location: req.body.location,
+      status: 'draft',
+      images: req.body.file,
+      videos: req.body.videos,
+      comment: req.body.comment
+    };
+    IncidentModel.push(newIntervention);
+    return res.status(201).json({
+      status: 201,
+      data: [{
+        id: newIntervention.id,
+        message: 'Created intervention record'
+      }]
+    });
+  }
 };
 
 
