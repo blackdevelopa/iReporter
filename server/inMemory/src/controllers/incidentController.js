@@ -1,13 +1,15 @@
 import IncidentModel from '../models/incidentModel';
 
-/**
- * Get All Red-flags
- * @param {object} req The request Object from the user
- * @param {object} res The response Object from the user
- */
 
 const IncidentController = {
-  getAllRedflags(req, res) {
+
+  /**
+   * Get All Red-flags
+   * @param {object} req The request Object from the user
+   * @param {object} res The response Object from the user
+   */
+  
+   getAllRedflags(req, res) {
     const redflags = [];
     IncidentModel.forEach((incidents) => {
       if (incidents.type === 'redflag') {
