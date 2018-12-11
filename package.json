@@ -7,6 +7,7 @@
     "dev": "nodemon ./server/app.js --exec babel-node",
     "test": "nyc --reporter=text mocha --timeout 10000 --require babel-register ./test/incidentdatabase.spec.js --exit",
     "coverage": "nyc report --reporter=text-lcov --reporter=lcov | coveralls",
+    "createTable": "node ./server/database/db/db createTables",
     "build": "babel -d ./build ./server",
     "prebuild": "rm -rf build/*",
     "start": "node ./build/app.js",

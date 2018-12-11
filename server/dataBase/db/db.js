@@ -1,32 +1,34 @@
 const { Pool } = require('pg');
-const dotnev = require('dotenv');
+const dotenv = require('dotenv');
 
-dotnev.config();
+dotenv.config();
 
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL
 });
 
 pool.on('connect', () => {
+  console.log('connected');
 });
 
 const createTables = () => {
   const queryText = 
     `CREATE TABLE IF NOT EXISTS
     incidents(
-      id SERIAL PRIMARY KEY NULL,
-      createdOn TIMESTAMP NULL,
-      createdBy INTEGER NULL,
-      type TEXT NULL,
+      id SERIAL PRIMARY KEY,
+      createdOn TIMESTAMP NOT NULL,
+      createdBy INTEGER NOT NULL,
+      type TEXT NOT NULL,
       location TEXT NOT NULL,
-      status TEXT NULL,
-      images TEXT NULL,
-      videos TEXT NULL,
+      status TEXT NOT NULL,
+      images TEXT NOT NULL,
+      videos TEXT NOT NULL,
       comment TEXT NOT NULL
     )`;
 
     pool.query(queryText)
     .then((res) => {
+      console.log(res);
       pool.end();
     })
     .catch((err) => {
@@ -47,6 +49,7 @@ const dropTables = () => {
 }
 
 pool.on('remove', () => {
+  console.log('client removed');
   process.exit(0);
 });
 
