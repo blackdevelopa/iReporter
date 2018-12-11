@@ -114,7 +114,14 @@ const IncidentController = {
  updateSingleRedflagLocation(req, res) {
   const redflagId = parseInt(req.params.id);
   const newLocation = [];
-  if(!Number(req.params.id)) {
+  IncidentModel.forEach((incidents) => {
+    if (incidents.id === redflagId && 
+        incidents.type === 'redflag') {
+      incidents.location = req.body.location;
+      newLocation.push(incidents.location)
+    }
+  });
+  if(!Number(redflagId)) {
     return res.status(400).json({
       status: 400,
       message: 'The Id is invalid'
@@ -126,14 +133,7 @@ const IncidentController = {
       message: 'Please enter the new redflag location'
     });
   }
-  IncidentModel.forEach((incidents) => {
-    if (incidents.id === redflagId && 
-        incidents.type === 'redflag') {
-      incidents.location = req.body.location;
-      newLocation.push(incidents.location)
-    }
-  });
-  if(newLocation >= 1) {
+  if(newLocation.length >= 1) {
     return res.status(200).json({ 
       status: 200,
       data: [{
@@ -158,24 +158,25 @@ const IncidentController = {
     const interventionId = parseInt(req.params.id);
     const newLocation = [];
     if(!Number(req.params.id)) {
-      return res.status(404).json({
-        status: 404,
+      return res.status(400).json({
+        status: 400,
         message: 'The Id is invalid'
       });
     }
     if(!req.body.location) {
-      return res.status(404).json({
-        status: 404,
+      return res.status(400).json({
+        status: 400,
         message: 'Please enter the new intervention location'
       });
     }
     IncidentModel.forEach((incidents) => {
-      if (incidents.id === interventionId) {
+      if (incidents.id === interventionId &&
+          incidents.type === 'intervention') {
         incidents.location = req.body.location;
         newLocation.push(incidents.location);
       }
     });
-    if (newLocation >= 1) {
+    if (newLocation.length >= 1) {
       return res.status(200).json({
         status: 200,
         data: [{
@@ -212,12 +213,13 @@ const IncidentController = {
     });
   }
   IncidentModel.forEach((incidents) => {
-    if (incidents.id === redflagId) {
+    if (incidents.id === redflagId &&
+        incidents.type === 'redflag') {
       incidents.comment = req.body.comment;
       newComment.push(incidents.location);
     }
   });
-  if (newComment >= 1) {
+  if (newComment.length >= 1) {
     return res.status(200).json({
       status: 200,
       data: [{
@@ -254,12 +256,13 @@ const IncidentController = {
     });
   }
   IncidentModel.forEach((incidents) => {
-    if (incidents.id === interventionId) {
+    if (incidents.id === interventionId &&
+        incidents.type === 'intervention') {
       incidents.comment = req.body.comment;
       newComment.push(incidents.comment);
     }
   });
-  if (newComment >= 1) {
+  if (newComment.length >= 1) {
     return res.status(200).json({
       status: 200,
       data: [{
@@ -350,12 +353,6 @@ const IncidentController = {
         newRedflagId.push(redflagId);
       }
     });
-    if (!req.body.location|| !req.body.comment) {
-      return res.status(400).json({
-        status: 400,
-        message: 'Please enter your location and comment'
-      });
-    }
     const newRedflag = {
       id: ++newRedflagId.length,
       createdBy: 1,
@@ -390,12 +387,6 @@ const IncidentController = {
         newInterventionId.push(interventionId);
       }
     });
-    if (!req.body.location|| !req.body.comment) {
-      return res.status(400).json({
-        status: 400,
-        message: 'Please enter your location and comment'
-      });
-    }
     const newIntervention = {
       id: ++newInterventionId.length,
       createdBy: 2,

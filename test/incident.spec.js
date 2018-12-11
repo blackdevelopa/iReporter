@@ -14,7 +14,8 @@ describe('/GET home route', () => {
       .get('/')
       .end((err, res) => {
 				res.should.have.status(200);
-				res.should.be.json;
+        res.should.be.json;
+        res.should.be.an('object');
         done();
       });
   });
@@ -27,6 +28,8 @@ describe('GET interventions', () => {
       .end((err, res) => {
         res.should.have.status(200);
         res.should.be.json;
+        res.body.status.should.equal(200);
+        res.body.data.should.be.a('array');
         done();
       });
   });
@@ -39,6 +42,8 @@ describe('GET redflags', () => {
       .end((err, res) => {
         res.should.have.status(200);
         res.should.be.json;
+        res.body.status.should.equal(200);
+        res.body.data.should.be.a('array');
         done();
       });
   });
@@ -52,6 +57,8 @@ describe('GET redflag by id', () => {
       .end((err, res) => {
         res.should.have.status(200);
         res.should.be.json;
+        res.body.status.should.equal(200);
+        res.body.data.should.be.a('array');
         done();
       });
   });
@@ -62,7 +69,8 @@ describe('GET redflag by id', () => {
     chai.request(app)
       .get('/api/v1/redflags/integer')
       .end((err, res) => {
-        res.should.have.status(404);
+        res.should.have.status(400);
+        res.body.should.be.an('object');
         res.should.be.json;
         done();
       });
@@ -73,10 +81,12 @@ describe('GET redflag by id', () => {
 describe('GET interventions by id', () => {
   it('should GET specifc interventions', (done) => {
     chai.request(app)
-      .get('/api/v1/interventions/2')
+      .get('/api/v1/interventions/6')
       .end((err, res) => {
         res.should.have.status(200);
         res.should.be.json;
+        res.body.status.should.equal(200);
+        res.body.data.should.be.a('array');
         done();
       });
   });
@@ -87,7 +97,8 @@ describe('GET interventions by id', () => {
     chai.request(app)
       .get('/api/v1/interventions/interger')
       .end((err, res) => {
-        res.should.have.status(404);
+        res.should.have.status(400);
+        res.body.should.be.an('object');
         res.should.be.json;
         done();
       });
@@ -95,48 +106,56 @@ describe('GET interventions by id', () => {
 });
 
 describe('PATCH specific redflags location', () => {
-  it('should PATCH specific redflags location', (done) => {
+  it('should return error response', (done) => {
     chai.request(app)
-      .patch('/api/v1/redflags/1/location')
+      .patch('/api/v1/redflags/integer/location')
       .end((err, res) => {
-        res.should.have.status(201);
+        res.should.have.status(400);
         res.should.be.json;
+        res.body.status.should.equal(400);
+        res.body.should.be.an('object');
         done();
       });
   });
 });
 
 describe('PATCH specific interventions location', () => {
-  it('should PATCH specific interventions location', (done) => {
+  it('should return error response', (done) => {
     chai.request(app)
-      .patch('/api/v1/interventions/2/location')
+      .patch('/api/v1/interventions/integer/location')
       .end((err, res) => {
-        res.should.have.status(201);
+        res.should.have.status(400);
         res.should.be.json;
+        res.body.status.should.equal(400);
+        res.body.should.be.an('object');
         done();
       });
   });
 });
 
 describe('PATCH specific redflags comment', () => {
-  it('should PATCH specific redflags comment', (done) => {
+  it('should return error response', (done) => {
     chai.request(app)
-      .patch('/api/v1/redflags/1/comment')
+      .patch('/api/v1/redflags/integer/comment')
       .end((err, res) => {
-        res.should.have.status(201);
+        res.should.have.status(400);
         res.should.be.json;
+        res.body.status.should.equal(400);
+        res.body.should.be.an('object');
         done();
       });
   });
 });
 
 describe('PATCH specific interventions comment', () => {
-  it('should PATCH specific interventions comment', (done) => {
+  it('should return error response', (done) => {
     chai.request(app)
-      .patch('/api/v1/redflags/1/comment')
+      .patch('/api/v1/redflags/integer/comment')
       .end((err, res) => {
-        res.should.have.status(201);
+        res.should.have.status(400);
         res.should.be.json;
+        res.body.status.should.equal(400);
+        res.body.should.be.an('object');
         done();
       });
   });
@@ -167,13 +186,15 @@ describe('DELETE specific intervention', () => {
 });
 
 
-describe('POST redflags', () => {
+describe('/POST redflags', () => {
   it('should POST redflags', (done) => {
     chai.request(app)
-      .post('/api/v1/redflags')
+      .post('/api/v1/redflags/')
       .end((err, res) => {
         res.should.have.status(201);
         res.should.be.json;
+        res.body.status.should.equal(201);
+        res.body.data.should.be.a('array');
         done();
       });
   });
@@ -186,6 +207,8 @@ describe('POST interventions', () => {
       .end((err, res) => {
         res.should.have.status(201);
         res.should.be.json;
+        res.body.status.should.equal(201);
+        res.body.data.should.be.a('array');
         done();
       });
   });
