@@ -5,8 +5,10 @@
   "main": "server/app.js",
   "scripts": {
     "dev": "nodemon ./server/app.js --exec babel-node",
-    "test": "nyc --reporter=text mocha --timeout 10000 --require babel-register ./test/incidentdatabase.spec.js --exit",
+    "test": " cross-env NODE_ENV=test nyc --reporter=text mocha --timeout 10000 --require babel-register ./test/incidentDatabase.spec.js --exit",
     "coverage": "nyc report --reporter=text-lcov --reporter=lcov | coveralls",
+    "createTable": "node ./server/database/db/db createIncidentTable && node ./server/database/db/db createUserTable",
+    "dropTable": "node ./server/database/db/db dropIncidentTable && node ./server/database/db/db dropUserTable",
     "build": "babel -d ./build ./server",
     "prebuild": "rm -rf build/*",
     "start": "node ./build/app.js",
@@ -48,9 +50,12 @@
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "babel-register": "^6.26.0",
+    "bcrypt": "^3.0.2",
     "body-parser": "^1.18.3",
+    "cross-env": "^5.2.0",
     "dotenv": "^6.2.0",
     "express": "^4.16.4",
+    "jsonwebtoken": "^8.4.0",
     "morgan": "^1.9.1",
     "pg": "^7.7.1"
   }
