@@ -42,9 +42,9 @@ const redFlag = {
    * Get All Incidents
    * @param {object} req 
    * @param {object} res 
-   * @returns {object} incident array
+   * @returns {object} incident object
    */
-  
+
   async getAllRedflags(req, res) {
     const findAllQuery = 'SELECT * FROM incidents';
     try {
