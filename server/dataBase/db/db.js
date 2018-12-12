@@ -8,7 +8,6 @@ dotenv.config();
 const pool = (process.env.NODE_ENV === 'test')?(new Pool(config.test)):((new Pool(config.development)));
 
 pool.on('connect', () => {
-  console.log('connected');
 });
 
 /**
@@ -20,7 +19,7 @@ const createIncidentTable = () => {
     incidents(
       id SERIAL PRIMARY KEY,
       createdOn TIMESTAMP NOT NULL,
-      createdBy FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE,
+      createdBy INTEGER NOT NULL,
       type TEXT NOT NULL,
       location TEXT NOT NULL,
       status TEXT NOT NULL,
@@ -31,7 +30,6 @@ const createIncidentTable = () => {
 
     pool.query(queryText)
     .then((res) => {
-      console.log(res);
       pool.end();
     })
     .catch((err) => {
@@ -51,7 +49,7 @@ const createUserTable = () => {
         lastname TEXT NOT NULL,
         othernames TEXT NOT NULL,
         email TEXT UNIQUE NOT NULL,
-        phoneNumber INTEGER NOT NULL,
+        phoneNumber NUMBER NOT NULL,
         username TEXT NOT NULL,
         registered TIMESTAMP NOT NULL,
         isAdmin BOOLEAN NOT NULL,
@@ -60,11 +58,9 @@ const createUserTable = () => {
 
   pool.query(queryText)
     .then((res) => {
-      console.log(res);
       pool.end();
     })
     .catch((err) => {
-      console.log(err);
       pool.end();
     });
 }
@@ -84,7 +80,6 @@ const dropIncidentTable = () => {
 }
 
 pool.on('remove', () => {
-  console.log('client removed');
   process.exit(0);
 });
 
@@ -101,22 +96,6 @@ const dropUserTable = () => {
       pool.end();
     });
 }
-
-// /**
-//  * Create All Tables
-//  */
-// const createAllTable = () => {
-//   createUserTable();
-//   createIncidentTable();
-// }
-
-// /**
-//  * Drop All Tables
-//  */
-// const dropAllTable = () => {
-//   dropUserTable();
-//   dropIncidentTable();
-// }
 
 module.exports = {
   createIncidentTable,

@@ -9,12 +9,12 @@ const redFlag = {
    */
 
   async createRedflag(req, res) {
-    const text = `INSERT INTO incidents(createdOn, createdBy, type, location, status, images, videos, comment)
+    const newRedflag = `INSERT INTO incidents(createdOn, createdBy, type, location, status, images, videos, comment)
     VALUES($1, $2, $3, $4, $5, $6, $7, $8)
     returning *`;
     const values = [
       new Date(),
-      req.body.user.id,
+      req.user.id,
       req.body.type,
       req.body.location,
       req.body.status,
@@ -24,13 +24,14 @@ const redFlag = {
     ];
     
     try {
-      const { rows } = await db.query(text, values);
+      const { rows } = await db.query(newRedflag, values);
       return res.status(201).json({
         status: 201,
         data: rows[0]
       });
     } 
     catch(err) {
+      console.log(err);
       return res.status(400).json({
         status: 400,
         message: 'There is an error in your post'
@@ -46,7 +47,7 @@ const redFlag = {
    */
 
   async getAllRedflags(req, res) {
-    const findAllQuery = 'SELECT * FROM incidents';
+    const findAllQuery = 'SELECT * FROM incidents where createdBy = $1';
     try {
       const { rows } = await db.query(findAllQuery);
       return res.status(200).json({
