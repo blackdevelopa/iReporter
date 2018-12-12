@@ -7,6 +7,7 @@ dotenv.config();
 
 const pool = (process.env.NODE_ENV === 'test')?(new Pool(config.test)):((new Pool(config.development)));
 
+
 pool.on('connect', () => {
 });
 
@@ -43,18 +44,18 @@ const createIncidentTable = () => {
 const createUserTable = () => {
   const queryText =
     `CREATE TABLE IF NOT EXISTS
-      users(
-        id SERIAL PRIMARY KEY,
-        firstname TEXT NOT NULL,
-        lastname TEXT NOT NULL,
-        othernames TEXT NOT NULL,
-        email TEXT UNIQUE NOT NULL,
-        phoneNumber NUMBER NOT NULL,
-        username TEXT NOT NULL,
-        registered TIMESTAMP NOT NULL,
-        isAdmin BOOLEAN NOT NULL,
-        password TEXT NOT NULL
-      )`;
+    users(
+      id SERIAL PRIMARY KEY,
+      firstname TEXT NOT NULL,
+      lastname TEXT NOT NULL,
+      othernames TEXT NOT NULL,
+      email TEXT UNIQUE NOT NULL,
+      phoneNumber VARCHAR(15) NOT NULL,
+      username TEXT NOT NULL,
+      registered TIMESTAMP NOT NULL,
+      isAdmin BOOLEAN NOT NULL,
+      password TEXT NOT NULL
+    )`;
 
   pool.query(queryText)
     .then((res) => {
