@@ -52,6 +52,7 @@
     "babel-register": "^6.26.0",
     "bcrypt": "^3.0.2",
     "body-parser": "^1.18.3",
+    "cross-env": "^5.2.0",
     "dotenv": "^6.2.0",
     "express": "^4.16.4",
     "jsonwebtoken": "^8.4.0",
