@@ -3,6 +3,7 @@ import bodyParser from 'body-parser';
 import logger from 'morgan';
 import dotenv from 'dotenv';
 import 'babel-polyfill';
+import router from './dataBase/router/indexRouter';
 
 const app = express();
 
@@ -13,20 +14,7 @@ app.use(logger('dev'));
 
 const port = process.env.PORT || 3000;
 
-app.get('/', (req, res) => {
-  res.status(200).json({
-    status: 200,
-    message: 'This is the iReporter application'
-  });
-});
-
-app.get('/*', (req, res) => {
-  res.status(404).json({
-    status: 404,
-    message: 'This is an invalid route. Please see proper documentation'
-  })
-})
-
+app.use(router);
 
 app.listen(port);
 
