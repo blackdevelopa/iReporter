@@ -6,7 +6,8 @@ const redflagRouter = Router();
 const { 
   createRedflag, getAllRedflags, 
   getRedflagsById, patchRedflagLocation, 
-  patchRedflagComment, deleteRedflagById 
+  patchRedflagComment, deleteRedflagById,
+  patchRedflagStatus 
 } = redFlag;
 
 const { verifyToken } = Validate;
@@ -39,6 +40,11 @@ redflagRouter.patch(
 redflagRouter.delete(
   '/red-flags/:id', 
   verifyToken, deleteRedflagById
+);
+
+redflagRouter.patch(
+  '/red-flags/:id/status', 
+  verifyToken, patchRedflagStatus
 );
 
 export default redflagRouter;

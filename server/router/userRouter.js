@@ -14,4 +14,8 @@ userRouter.post(
   loginUser
 );
 
+// userRouter.post(
+//   '/auth/login',
+// );
+
 export default userRouter;

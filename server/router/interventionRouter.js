@@ -6,7 +6,8 @@ const interventionRouter = Router();
 const { 
   createIntervention, getAllIntervention, 
   getInterventionById, patchInterventionLocation, 
-  patchInterventionComment, deleteInterventionById 
+  patchInterventionComment, deleteInterventionById,
+  patchInterventionStatus 
 } = intervention;
 
 const { verifyToken } = Validate;
@@ -39,6 +40,11 @@ interventionRouter.patch(
 interventionRouter.delete(
   '/interventions/:id', 
   verifyToken, deleteInterventionById
+);
+
+interventionRouter.patch(
+  '/interventions/:id/status', 
+  verifyToken, patchInterventionStatus
 );
 
 export default interventionRouter;
