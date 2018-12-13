@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import redFlag from '../controllers/redFlag';
 import Validate from '../middleware/validate';
-const incidentRouter = Router();
+const redflagRouter = Router();
 
 const { 
   createRedflag, getAllRedflags, 
@@ -11,34 +11,34 @@ const {
 
 const { verifyToken } = Validate;
 
-incidentRouter.post(
+redflagRouter.post(
   '/red-flags',
   verifyToken, createRedflag
 );
 
-incidentRouter.get(
+redflagRouter.get(
   '/red-flags', 
   verifyToken, getAllRedflags
 );
 
-incidentRouter.get(
+redflagRouter.get(
   '/red-flags/:id', 
   verifyToken, getRedflagsById
 );
 
-incidentRouter.patch(
+redflagRouter.patch(
   '/red-flags/:id/location', 
   verifyToken, patchRedflagLocation
 );
 
-incidentRouter.patch(
+redflagRouter.patch(
   '/red-flags/:id/comment', 
   verifyToken, patchRedflagComment
 );
 
-incidentRouter.delete(
+redflagRouter.delete(
   '/red-flags/:id', 
   verifyToken, deleteRedflagById
 );
 
-export default incidentRouter;
+export default redflagRouter;

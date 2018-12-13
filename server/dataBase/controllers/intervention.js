@@ -1,14 +1,14 @@
 import db from '../db/indexdb';
 
-const redFlag = {
+const intervention = {
   /**
-   * Create Redflags Incidence
+   * Create Intervention Incidence
    * @param {*} req
    * @param {*} res
    * @returns {object} incident object
    */
 
-  async createRedflag(req, res) {
+  async createIntervention(req, res) {
     const createQuery = `INSERT INTO incidents(createdOn, createdBy, type, location, status, images, videos, comment)
     VALUES($1, $2, $3, $4, $5, $6, $7, $8)
     returning *`;
@@ -39,16 +39,16 @@ const redFlag = {
   },
 
   /**
-   * Get All Redflag Incidence
+   * Get All Intervention Incidence
    * @param {object} req 
    * @param {object} res 
    * @returns {object} incident object
    */
 
-  async getAllRedflags(req, res) {
-    const findAllQuery = 'SELECT * FROM incidents WHERE createdBy = $1 AND type = $2';
+  async getAllIntervention(req, res) {
+    const findAllQuery = 'SELECT * FROM incidents WHERE createdBy = $1 AND type=$2';
     try {
-      const {rows} = await db.query(findAllQuery, [req.user.id, 'redflag']);
+      const { rows } = await db.query(findAllQuery, [req.user.id, 'intervention']);
       return res.status(200).json({
         status: 200,
         data: rows
@@ -63,20 +63,20 @@ const redFlag = {
 
   
   /**
-   * Get Redflag redflag by id 
+   * Get Intervention by id 
    * @param {object} req
    * @param {object} res
    * @returns {object} 
    */
 
-   async getRedflagsById(req, res) {
+   async getInterventionById(req, res) {
      const findQueryById = 'SELECT * FROM incidents WHERE id=$1 AND createdBy = $2 AND type=$3';
      try {
-       const { rows } = await db.query(findQueryById, [req.params.id, req.user.id, 'redflag']);
+       const { rows } = await db.query(findQueryById, [req.params.id, req.user.id, 'intervention']);
        if(!rows[0]) {
          return res.status(400).json({
            status: 400,
-           message: 'There is no redflag here'
+           message: 'There is no intervention here'
          });
        }
        return res.status(200).json({
@@ -94,19 +94,19 @@ const redFlag = {
 
 
    /**
-    * PATCH Redflag location
+    * PATCH Intervention location
     */
 
-    async patchRedflagLocation(req, res) {
+    async patchInterventionLocation(req, res) {
       const findOneQuery = 'SELECT * FROM incidents WHERE id=$1 AND createdBy=$2 AND type=$3';
       const patchOneQuery = `UPDATE incidents SET location=$1 WHERE id=$2 AND createdBy=$3 returning *`;
 
       try {
-        const { rows } = await db.query(findOneQuery, [req.params.id, req.user.id, 'redflag']);
+        const { rows } = await db.query(findOneQuery, [req.params.id, req.user.id, 'intervention']);
         if(!rows[0]) {
           return res.status(400).json({
             status: 400,
-            message: 'This redflag does not exist'
+            message: 'This intervention does not exist'
           });
         }
         const values = [
@@ -120,7 +120,7 @@ const redFlag = {
           status: 200,
           data: [{
             id: response.rows[0].id,
-            message: 'Updated red-flags location'
+            message: 'Updated intervention location'
           }]
         });
       }
@@ -133,16 +133,16 @@ const redFlag = {
     },
 
 
-    async patchRedflagComment(req, res) {
+    async patchInterventionComment(req, res) {
       const findOneQuery = 'SELECT * FROM incidents WHERE id=$1 AND createdBy=$2 AND type=$3';
       const patchOneQuery = `UPDATE incidents SET comment=$1 WHERE id=$2 AND createdBy=$3 returning *`;
 
       try {
-        const { rows } = await db.query(findOneQuery, [req.params.id, req.user.id, 'redflag']);
+        const { rows } = await db.query(findOneQuery, [req.params.id, req.user.id, 'intervention']);
         if(!rows[0]) {
           return res.status(400).json({
             status: 400,
-            message: 'This redflag does not exist'
+            message: 'This intervention does not exist'
           });
         }
         const values = [
@@ -156,7 +156,7 @@ const redFlag = {
           status: 200,
           data: [{
             id: response.rows[0].id,
-            message: 'Updated red-flags comment'
+            message: 'Updated intervention comment'
           }]
         });
       }
@@ -169,21 +169,21 @@ const redFlag = {
     },
 
 
-    async deleteRedflagById(req, res) {
+    async deleteInterventionById(req, res) {
       const deleteQuery = 'DELETE FROM incidents WHERE id=$1 AND createdBy=$2 AND type=$3 returning *';
       try {
-        const { rows } = await db.query(deleteQuery, [req.params.id, req.user.id, 'redflag']);
+        const { rows } = await db.query(deleteQuery, [req.params.id, req.user.id, 'intervention']);
         if(!rows[0]) {
           return res.status(400).json({
             status: 400,
-            message: 'This red-reflag does not exist'
+            message: 'This intervention does not exist'
           });
         }
         return res.status(200).json({
           status: 200,
           data: [{
             id: rows[0].id,
-            message: 'Red-flag record has been deleted successfully'
+            message: 'Intervention record has been deleted successfully'
           }]
         });
       }
@@ -196,4 +196,4 @@ const redFlag = {
     }
 };
 
-export default redFlag;
+export default intervention;
