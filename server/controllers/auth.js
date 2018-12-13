@@ -12,7 +12,7 @@ const userAuth = {
   async createUser(req, res) {
 
     const hashPassword = Helper.hash(req.body.password);
-    const isAdmin = (isAdmin === 'false');
+    const isAdmin = (isAdmin === true);
     const firstname = req.body.firstname;
     const lastname = req.body.lastname;
     const othernames = req.body.othernames;
