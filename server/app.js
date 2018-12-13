@@ -3,7 +3,7 @@ import bodyParser from 'body-parser';
 import logger from 'morgan';
 import dotenv from 'dotenv';
 import 'babel-polyfill';
-import router from './dataBase/router/indexRouter';
+import router from './router/indexRouter';
 
 const app = express();
 

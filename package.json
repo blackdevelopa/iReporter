@@ -7,7 +7,7 @@
     "dev": "nodemon ./server/app.js --exec babel-node",
     "test": " cross-env NODE_ENV=test nyc --reporter=text mocha --timeout 10000 --require babel-register ./test/incidentDatabase.spec.js --exit",
     "coverage": "nyc report --reporter=text-lcov --reporter=lcov | coveralls",
-    "createTable": "node ./server/database/db/db createIncidentTable && node ./server/database/db/db createUserTable",
+    "createTable": "node ./server/database/db/db createUserTable && node ./server/database/db/db createIncidentTable",
     "dropTable": "node ./server/database/db/db dropIncidentTable && node ./server/database/db/db dropUserTable",
     "build": "babel -d ./build ./server",
     "prebuild": "rm -rf build/*",

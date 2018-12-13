@@ -6,7 +6,7 @@ const userAuth = {
    * Create A User
    * @param {object} req 
    * @param {object} res
-   * @returns {object} 
+   * @returns {object} returns a user object
    */
 
   async createUser(req, res) {
@@ -16,12 +16,15 @@ const userAuth = {
         message: 'Enter a valid email'
       });
     }
-    if (!req.body.email || !req.body.password) {
+
+    if (!req.body.email || !req.body.password
+      || !req.body.phoneNumber || !req.body.username) {
       return res.status(400).json({
         status: 400,
-        message: 'Email or Password is missing'
+        message: 'Please enter email, password, username and username'
       });
     }
+    
     const hashPassword = Helper.hash(req.body.password);
     const isAdmin = (isAdmin === 'false');
 

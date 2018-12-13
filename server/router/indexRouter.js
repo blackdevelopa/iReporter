@@ -1,9 +1,11 @@
 import { Router } from 'express';
-import incidentRouter from './incidentRouter';
+import redflagRouter from './redflagRouter';
+import interventionRouter from './interventionRouter';
 import userRouter from './userRouter';
 const indexRouter = Router();
 
-indexRouter.use('/api/v1/', incidentRouter);
+indexRouter.use('/api/v1/', redflagRouter);
+indexRouter.use('/api/v1/', interventionRouter);
 indexRouter.use('/', userRouter);
 
 indexRouter.get('/', (req, res) => {
