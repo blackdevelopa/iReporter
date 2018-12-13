@@ -2,7 +2,7 @@ import { Router } from 'express';
 import userAuth from '../controllers/auth';
 const userRouter = Router();
 
-const { createUser, loginUser } = userAuth;
+const { createUser, loginUser, loginAdmin } = userAuth;
 
 userRouter.post(
   '/auth/signup', 
@@ -12,6 +12,11 @@ userRouter.post(
 userRouter.post(
   '/auth/login', 
   loginUser
+);
+
+userRouter.post(
+  '/auth/login',
+  loginAdmin
 );
 
 export default userRouter;

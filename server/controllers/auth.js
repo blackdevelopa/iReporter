@@ -12,7 +12,7 @@ const userAuth = {
   async createUser(req, res) {
 
     const hashPassword = Helper.hash(req.body.password);
-    const isAdmin = (isAdmin === 'false');
+    const isAdmin = (isAdmin === true);
     const firstname = req.body.firstname;
     const lastname = req.body.lastname;
     const othernames = req.body.othernames;
@@ -202,7 +202,69 @@ const userAuth = {
     } catch(error) {
       return res.status(400).json(error)
     }
-  }
+  },
+
+  /**
+   * Admin Login
+   * @param {object} req 
+   * @param {object} res
+   * @returns {object} user object 
+   */
+  async loginAdmin(req, res) {
+    const email = req.body.email;
+    const password = req.body.password;
+
+    if (/\s/.test(email)) {
+      return res.status(400).json({
+        status: 400,
+        message: 'No spaces please, just your email.'
+      });
+    }
+    if (/\s/.test(password)) {
+      return res.status(400).json({
+        status: 400,
+        message: 'No spaces please, just your password.'
+      });
+    }
+    if (!req.body.email || !req.body.password) {
+      return res.status(400).json({
+        status: 400,
+        message: 'Email or Password is missing'
+      });
+    }
+    if (!Helper.validEmail(req.body.email)) {
+      return res.status(400).json({
+        status: 400,
+        message: 'Enter a valid email'
+      });
+    }
+    const getUser = 'SELECT * FROM users WHERE email = $1';
+    try {
+      const { rows } = await db.query(getUser, [req.body.email]);
+      if (!rows[0]) {
+        return res.status(400).json({
+          status: 400,
+          message: 'Email or Password is invalid'
+        });
+      }
+      if(!Helper.passwordCheck(rows[0].password, req.body.password)) {
+        return res.status(400).json({ 
+          status: 400,
+          message: 'Email or Password is invalid'
+        });
+      }
+      const token = Helper.genToken(rows[0].id);
+      return res.status(200).json({
+        status: 200,
+        data: [{
+          token,
+          user: rows[0]
+        }]
+      });
+    } catch(error) {
+      return res.status(400).json(error)
+    }
+  },
 }
 
 export default userAuth;
