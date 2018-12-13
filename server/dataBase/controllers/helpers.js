@@ -5,23 +5,43 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const Helper = {
-  // has password
+
+  /**
+   * Hash Password with bcrypt and salting
+   * @param {string} password 
+   * @returns {string} returns hash
+   */
+
   hash(password) {
     return bcrypt.hashSync(password, bcrypt.genSaltSync(10));
   },
 
-  // compare password
+  /**
+   * Check Password
+   * @param {string} hash 
+   * @param {string} password 
+   */
+
   passwordCheck(hash, password) {
     return bcrypt.compareSync(password, hash);
   },
 
-  // validateEmail
+  /**
+   * Validate Email Address
+   * @param {string} email 
+   * @returns {boolean} returns a true or false
+   */
+
   validEmail(email) {
     return /\S+@\S+\.\S+/.test(email)
   },
 
-  // generate token
-  genToken(id) {
+  /**
+   * Generates the required token
+   * @param {string} id 
+   */
+
+   genToken(id) {
     const token = jwt.sign({
       userId: id
     }, 
