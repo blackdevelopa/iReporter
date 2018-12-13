@@ -33,22 +33,47 @@ const Helper = {
    */
 
   validEmail(email) {
-    return /\S+@\S+\.\S+/.test(email)
+    return /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/.test(email)
   },
 
-  /**
-   * Generates the required token
-   * @param {string} id 
-   */
+  validPhone(phone) {
+    return /^\d{11}$/.test(phone)
+  },
 
-   genToken(id) {
+  validUsername(username) {
+    return /^[a-zA-Z]+$/.test(username)
+  },
+
+  validName(firstname) {
+    if(firstname.length <= 30) {
+      return true;
+    }
+  },
+  validName(lastname) {
+    if(lastname.length <= 30) {
+      return true;
+    }
+  },
+  validName(othernames) {
+    if(othernames.length <= 30) {
+      return true;
+    }
+  },
+  usernameLength(username) {
+    if(username.length <= 30) {
+      return true;
+    }
+  },
+
+  genToken(id) {
     const token = jwt.sign({
       userId: id
     }, 
     process.env.HIDDENKEY, { expiresIn: '2hr' }
     );
     return token;
-  }
+  },
 }
+
 
 export default Helper;

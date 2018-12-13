@@ -10,35 +10,111 @@ const userAuth = {
    */
 
   async createUser(req, res) {
+
+    const hashPassword = Helper.hash(req.body.password);
+    const isAdmin = (isAdmin === 'false');
+    const firstname = req.body.firstname;
+    const lastname = req.body.lastname;
+    const othernames = req.body.othernames;
+    const phone = req.body.phoneNumber;
+    const username = req.body.username;
+
+    if (!firstname) {
+      return res.status(400).json({
+        status: 400,
+        message: 'Enter your firstname'
+      });
+    }
+    if (/\s/.test(firstname)) {
+      return res.status(400).json({
+        status: 400,
+        message: 'No spaces please, just your first name.'
+      });
+    }
+    if (!lastname) {
+      return res.status(400).json({
+        status: 400,
+        message: 'Enter your lastname'
+      });
+    }
+    if (/\s/.test(lastname)) {
+      return res.status(400).json({
+        status: 400,
+        message: 'No spaces please, just your last name.'
+      })
+    }
+    if (!othernames) {
+      return res.status(400).json({
+        status: 400,
+        message: 'Enter your othernames'
+      });
+    }
+    if (/\s/.test(othernames)) {
+      return res.status(400).json({
+        status: 400,
+        message: 'No spaces please, just your other name.'
+      });
+    }
+    if (!Helper.validPhone(phone)) {
+      return res.status(400).json({
+        status: 400,
+        message: 'Oops. This does not look like a proper phone number'
+      });
+    }
+    if (!Helper.validUsername(username)) {
+      return res.status(400).json({
+        status: 400,
+        message: 'Oops. This username should only have alphabets'
+      });
+    }
+    if (!req.body.email) {
+      return res.status(400).json({
+        status: 400,
+        message: 'Enter your email'
+      });
+    }
     if (!Helper.validEmail(req.body.email)) {
       return res.status(400).json({
         status: 400,
-        message: 'Enter a valid email'
+        message: 'Oops. This email is not valid'
       });
     }
-
-    if (!req.body.email || !req.body.password
-      || !req.body.phoneNumber || !req.body.username) {
-      return res.status(400).json({
+    if(!Helper.validName(firstname)) {
+      if (true) return res.status(400).json({
         status: 400,
-        message: 'Please enter email, password, username and username'
+        message: 'Is your first name really that long? The accepted limit is actually 30.'
       });
     }
-    
-    const hashPassword = Helper.hash(req.body.password);
-    const isAdmin = (isAdmin === 'false');
+    if(!Helper.validName(lastname)) {
+      if (true) return res.status(400).json({
+        status: 400,
+        message: 'Is your last name really that long? The accepted limit is actually 30.'
+      });
+    }
+    if(!Helper.validName(othernames)) {
+      if (true) return res.status(400).json({
+        status: 400,
+        message: 'Is your other name really that long? The accepted limit is actually 30.'
+      });
+    }
+    if(!Helper.usernameLength(username)) {
+      if (true) return res.status(400).json({
+        status: 400,
+        message: 'Your username should not be that long? The accepted limit is actually 30.'
+      });
+    }
 
     const createUser = `INSERT INTO
       users(firstname, lastname, othernames, email, phoneNumber, username, registered, isAdmin, password)
       VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9)
       returning *`;
     const values = [
-      req.body.firstname,
-      req.body.lastname,
-      req.body.othernames,
+      req.body.firstname.trim(),
+      req.body.lastname.trim(),
+      req.body.othernames.trim(),
       req.body.email,
       req.body.phoneNumber,
-      req.body.username,
+      req.body.username.trim(),
       new Date(),
       isAdmin,
       hashPassword
@@ -73,6 +149,21 @@ const userAuth = {
    * @returns {object} user object 
    */
   async loginUser(req, res) {
+    const email = req.body.email;
+    const password = req.body.password;
+
+    if (/\s/.test(email)) {
+      return res.status(400).json({
+        status: 400,
+        message: 'No spaces please, just your email.'
+      });
+    }
+    if (/\s/.test(password)) {
+      return res.status(400).json({
+        status: 400,
+        message: 'No spaces please, just your password.'
+      });
+    }
     if (!req.body.email || !req.body.password) {
       return res.status(400).json({
         status: 400,

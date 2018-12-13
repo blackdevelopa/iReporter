@@ -21,12 +21,12 @@ const createIncidentTable = () => {
       id SERIAL PRIMARY KEY,
       createdOn TIMESTAMP NOT NULL,
       createdBy INTEGER NOT NULL,
-      type TEXT NOT NULL,
-      location TEXT NOT NULL,
-      status TEXT NOT NULL,
-      images TEXT NOT NULL,
-      videos TEXT NULL,
-      comment TEXT NOT NULL
+      type VARCHAR(255) NOT NULL,
+      location VARCHAR(255) NOT NULL,
+      status VARCHAR(255) NOT NULL,
+      images VARCHAR(255) NOT NULL,
+      videos VARCHAR(255) NULL,
+      comment VARCHAR(255) NOT NULL
     )`;
 
     pool.query(queryText)
@@ -46,15 +46,15 @@ const createUserTable = () => {
     `CREATE TABLE IF NOT EXISTS
     users(
       id SERIAL PRIMARY KEY,
-      firstname TEXT NULL,
-      lastname TEXT NULL,
-      othernames TEXT NULL,
-      email TEXT UNIQUE NOT NULL,
-      phoneNumber TEXT NOT NULL,
-      username TEXT NOT NULL,
+      firstname VARCHAR(255) NULL,
+      lastname VARCHAR(255) NULL,
+      othernames VARCHAR(255) NULL,
+      email VARCHAR(255) UNIQUE NOT NULL,
+      phoneNumber VARCHAR(255) NULL,
+      username VARCHAR(255) NULL,
       registered TIMESTAMP NOT NULL,
       isAdmin BOOLEAN NOT NULL,
-      password TEXT NOT NULL
+      password VARCHAR(255) NOT NULL
     )`;
 
   pool.query(queryText)
