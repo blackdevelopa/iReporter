@@ -9,15 +9,18 @@ const intervention = {
    */
 
   async createIntervention(req, res) {
+    const status = (req.body.status = 'draft');
+    const type = (req.body.type = 'intervention');
+
     const createQuery = `INSERT INTO incidents(createdOn, createdBy, type, location, status, images, videos, comment)
     VALUES($1, $2, $3, $4, $5, $6, $7, $8)
     returning *`;
     const values = [
       new Date(),
       req.user.id,
-      req.body.type,
+      type,
       req.body.location,
-      req.body.status,
+      status,
       req.body.images,
       req.body.videos,
       req.body.comment
