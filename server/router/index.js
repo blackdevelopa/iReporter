@@ -6,7 +6,7 @@ const index = Router();
 
 index.use('/api/v1/', redflagRouter);
 index.use('/api/v1/', interventionRouter);
-index.use('/', userRouter);
+index.use('/api/v1/', userRouter);
 
 index.get('/', (req, res) => {
   return res.status(200).json({
