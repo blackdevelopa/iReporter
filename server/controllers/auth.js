@@ -12,7 +12,7 @@ const userAuth = {
   async createUser(req, res) {
 
     const hashPassword = Helper.hash(req.body.password);
-    const isAdmin = (isAdmin === true);
+    const isAdmin = false;
     const firstname = req.body.firstname;
     const lastname = req.body.lastname;
     const othernames = req.body.othernames;
@@ -138,7 +138,7 @@ const userAuth = {
         });
       }
       return res.status(400).json(error.message);
-    }
+    } 
   },
 
 

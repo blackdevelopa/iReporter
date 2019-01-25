@@ -5,10 +5,10 @@
   "main": "server/app.js",
   "scripts": {
     "dev": "nodemon ./server/app.js --exec babel-node",
-    "test": " cross-env NODE_ENV=test nyc --reporter=text mocha --timeout 10000 --require babel-register server/test/index.js --exit",
+    "test": "cross-env NODE_ENV=test nyc --reporter=text mocha --timeout 10000 --require babel-register server/test/index.js --exit",
     "coverage": "nyc report --reporter=text-lcov --reporter=lcov | coveralls",
     "createTable": "node ./server/db/ createUserTable && node ./server/db/ createIncidentTable",
-    "dropTable": "node ./server/database/db/db dropIncidentTable && node ./server/database/db/db dropUserTable",
+    "dropTable": "node ./server/db dropIncidentTable && node ./server/db dropUserTable",
     "build": "babel -d ./build ./server",
     "prebuild": "rm -rf build/*",
     "start": "node ./build/app.js",

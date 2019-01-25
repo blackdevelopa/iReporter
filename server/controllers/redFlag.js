@@ -179,7 +179,7 @@ const redFlag = {
         if(!rows[0]) {
           return res.status(400).json({
             status: 400,
-            message: 'This red-reflag does not exist'
+            message: 'This red-flag does not exist'
           });
         }
         return res.status(200).json({
