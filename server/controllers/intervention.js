@@ -1,6 +1,7 @@
 import db from '../db/indexdb';
 
 const intervention = {
+
   /**
    * Create Intervention Incidence
    * @param {*} req
@@ -9,8 +10,10 @@ const intervention = {
    */
 
   async createIntervention(req, res) {
+
     const status = (req.body.status = 'draft');
     const type = (req.body.type = 'intervention');
+
 
     const createQuery = `INSERT INTO incidents(createdOn, createdBy, type, location, status, images, videos, comment)
     VALUES($1, $2, $3, $4, $5, $6, $7, $8)
@@ -237,7 +240,6 @@ const intervention = {
         });
       }
       catch (err) {
-        console.log(err)
         return res.status(400).json({
           status: 400,
           message: err
