@@ -13,9 +13,6 @@ const adminController = {
   async patchRedflagStatus(req, res) {
     try {
       const { rows } = await db.query(findOneAdmin, [req.user.id, 'true']);
-      if(rows.length === 0){
-        return res.status(400).json({ status: 400, message: 'Not an Admin' })
-      }
       const { rows:response } = await db.query(findOneQuery, [req.params.id, 'redflag']);
       if(!response[0]) {
         return res.status(400).json({ status: 400, message: 'red-flag does not exist'
@@ -40,9 +37,6 @@ const adminController = {
   async patchInterventionStatus(req, res) {
     try {
       const { rows } = await db.query(findOneAdmin, [req.user.id, 'true']);
-      if(rows.length === 0){
-        return res.status(400).json({ status: 400, message: 'Not an Admin' })
-      }
       const { rows:response } = await db.query(findOneQuery, [req.params.id, 'intervention']);
       if(!response[0]) {
         return res.status(400).json({ status: 400,
