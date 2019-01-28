@@ -142,7 +142,6 @@ const intervention = {
     async patchInterventionComment(req, res) {
       const findOneQuery = 'SELECT * FROM incidents WHERE id=$1 AND createdBy=$2 AND type=$3';
       const patchOneQuery = `UPDATE incidents SET comment=$1 WHERE id=$2 AND createdBy=$3 returning *`;
-
       try {
         const { rows } = await db.query(findOneQuery, [req.params.id, req.user.id, 'intervention']);
         if(!rows[0]) {
@@ -156,7 +155,6 @@ const intervention = {
           req.params.id,
           req.user.id
         ];
-
         const response = await db.query(patchOneQuery, values);
         return res.status(200).json({
           status: 200,
@@ -173,8 +171,6 @@ const intervention = {
         });
       }
     },
-
-
     async deleteInterventionById(req, res) {
       const deleteQuery = 'DELETE FROM incidents WHERE id=$1 AND createdBy=$2 AND type=$3 returning *';
       try {

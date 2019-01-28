@@ -73,7 +73,7 @@ describe('POST api/v1/auth/signup', () => {
         expect(res.body.status).to.be.a('number');
         expect(res.body.status).to.be.equals(400);
         expect(res.body.message).to.be.a('string');
-        expect(res.body.message).to.equals('This user already exists');
+        expect(res.body.message).to.equals('User exists');
         done();
       });
   });
