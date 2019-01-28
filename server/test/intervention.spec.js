@@ -128,7 +128,6 @@ describe('GET api/v1/interventions', () => {
       .end((err, res) => {
         if (err) done();
         expect(res.body).to.be.an('object');
-        expect(res.body).to.haveOwnProperty('data');
         expect(res.body.status).to.be.a('number');
         expect(res.body.status).to.be.equals(200);
         expect(res.body.data[0]).to.haveOwnProperty('id');
