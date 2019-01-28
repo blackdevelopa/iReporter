@@ -1,0 +1,673 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "description": "iReporter seeks to provide a platform that allows users report corruption cases and interventions to designated authorities.",
+      "version": "1.0.0",
+      "title": "iReporter",
+      "termsOfService": "http://swagger.io/terms/",
+      "contact": {
+        "email": "blackdevelopa@gmail.com"
+      },
+      "license": {
+        "name": "GNU General Public License",
+        "url": "https://www.gnu.org/licenses/gpl-3.0.en.html"
+      }
+    },
+    "host": "ireporter234.herokuapp.com",
+    "basePath": "/api/v1",
+    "tags": [
+      {
+        "name": "auth",
+        "description": "User authentication",
+        "externalDocs": {
+          "url": "https://ireporter234.herokuapp.com"
+        }
+      },
+      {
+        "name": "red-flags",
+        "description": "Everything about red-flag records",
+        "externalDocs": {
+          "url": "https://ireporter234.herokuapp.com"
+        }
+      },
+      {
+        "name": "interventions",
+        "description": "Everything about intervention records",
+        "externalDocs": {
+          "url": "https://ireporter234.herokuapp.com"
+        }
+      }
+    ],
+    "schemes": [
+      "https",
+      "http"
+    ],
+    "paths": {
+      "/red-flags": {
+        "post": {
+          "tags": [
+            "red-flags"
+          ],
+          "summary": "Create a red-flag record",
+          "description": "Users can create red-flag records",
+          "operationId": "createRedflag",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "record",
+              "description": "The record the user wants to place",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/red-flag"
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "record created successfully"
+            }
+          }
+        },
+        "get": {
+          "tags": [
+            "red-flags"
+          ],
+          "summary": "Get all red-flags",
+          "description": "Return all red-flags from the database",
+          "operationId": "getAllRedflags",
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "Successfully got red-flags"
+            },
+            "400": {
+              "description": "No avaliable red-flag records"
+            }
+          }
+        }
+      },
+      "/red-flags/{id}": {
+        "get": {
+          "tags": [
+            "red-flags"
+          ],
+          "summary": "Find record by ID",
+          "description": "Returns a single record",
+          "operationId": "getRedflagsById",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "description": "ID of record to return",
+              "required": true,
+              "type": "integer",
+              "format": "int64"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful got record",
+              "schema": {
+                "$ref": "#/definitions/red-flag"
+              }
+            },
+            "404": {
+              "description": "record not found"
+            }
+          }
+        }
+      },
+      "/red-flags/{id}/location": {
+        "patch": {
+          "tags": [
+            "red-flags"
+          ],
+          "summary": "Edit a record's location by id",
+          "description": "Edits a record's location by id",
+          "operationId": "patchRedflagLocation",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "description": "ID of record to edit",
+              "required": true,
+              "type": "integer",
+              "format": "int64"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful edited record's location",
+              "schema": {
+                "$ref": "#/definitions/record2"
+              }
+            },
+            "404": {
+              "description": "record not found"
+            },
+            "403": {
+              "description": "user is not authorized to edit this record."
+            }
+          }
+        }
+      },
+      "/red-flags/{id}/comment": {
+        "patch": {
+          "tags": [
+            "red-flags"
+          ],
+          "summary": "Edit a record's comment by id",
+          "description": "Edits a record's comment by id",
+          "operationId": "patchRedflagComment",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "description": "ID of record to edit",
+              "required": true,
+              "type": "integer",
+              "format": "int64"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful edited record's comment",
+              "schema": {
+                "$ref": "#/definitions/record2"
+              }
+            },
+            "404": {
+              "description": "record not found"
+            },
+            "403": {
+              "description": "user is not authorized to edit this record."
+            }
+          }
+        }
+      },
+      "/red-flags/{id}/status": {
+        "patch": {
+          "tags": [
+            "red-flags"
+          ],
+          "summary": "Admin: Edit a record's status by id",
+          "description": "Admin: Edits a record's status by id",
+          "operationId": "patchRedflagStatus",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "description": "ID of record to edit",
+              "required": true,
+              "type": "integer",
+              "format": "int64"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful edited record's status",
+              "schema": {
+                "$ref": "#/definitions/red-flag"
+              }
+            },
+            "404": {
+              "description": "record not found"
+            },
+            "403": {
+              "description": "user is not authorized to edit this record."
+            }
+          }
+        }
+      },
+      "/interventions": {
+        "post": {
+          "tags": [
+            "interventions"
+          ],
+          "summary": "Create a intervention record",
+          "description": "Users can create intervention records",
+          "operationId": "createIntervention",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "record",
+              "description": "The record the user wants to place",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/intervention"
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "record created successfully"
+            }
+          }
+        },        
+        "get": {
+          "tags": [
+            "interventions"
+          ],
+          "summary": "Get all interventions",
+          "description": "Return all interventions from the database",
+          "operationId": "getAllInterventions",
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "Successfully got interventions"
+            },
+            "400": {
+              "description": "No avaliable intervention records"
+            }
+          }
+        }
+      },
+      "/interventions/{id}": {
+        "get": {
+          "tags": [
+            "interventions"
+          ],
+          "summary": "Find record by ID",
+          "description": "Returns a single record",
+          "operationId": "getInterventionById",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "description": "ID of record to return",
+              "required": true,
+              "type": "integer",
+              "format": "int64"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful got record",
+              "schema": {
+                "$ref": "#/definitions/intervention"
+              }
+            },
+            "404": {
+              "description": "record not found"
+            }
+          }
+        }
+      },
+      "/interventions/{id}/location": {
+        "patch": {
+          "tags": [
+            "interventions"
+          ],
+          "summary": "Edit a record's location by id",
+          "description": "Edits a record's location by id",
+          "operationId": "patchInterventionLocation",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "description": "ID of record to edit",
+              "required": true,
+              "type": "integer",
+              "format": "int64"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful edited record's location",
+              "schema": {
+                "$ref": "#/definitions/intervention"
+              }
+            },
+            "404": {
+              "description": "record not found"
+            },
+            "403": {
+              "description": "user is not authorized to edit this record."
+            }
+          }
+        }
+      },
+      "/interventions/{id}/comment": {
+        "patch": {
+          "tags": [
+            "interventions"
+          ],
+          "summary": "Edit a record's comment by id",
+          "description": "Edits a record's comment by id",
+          "operationId": "patchInterventionComment",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "description": "ID of record to edit",
+              "required": true,
+              "type": "integer",
+              "format": "int64"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful edited record's comment",
+              "schema": {
+                "$ref": "#/definitions/record2"
+              }
+            },
+            "404": {
+              "description": "record not found"
+            },
+            "403": {
+              "description": "user is not authorized to edit this record."
+            }
+          }
+        }
+      },
+      "/interventions/{id}/status": {
+        "patch": {
+          "tags": [
+            "interventions"
+          ],
+          "summary": "Admin: Edit a record's status by id",
+          "description": "Admin: Edits a record's status by id",
+          "operationId": "patchInterventionStatus",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "description": "ID of record to edit",
+              "required": true,
+              "type": "integer",
+              "format": "int64"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful edited record's status",
+              "schema": {
+                "$ref": "#/definitions/record2"
+              }
+            },
+            "404": {
+              "description": "record not found"
+            },
+            "403": {
+              "description": "user is not authorized to edit this record."
+            }
+          }
+        }
+      },
+      "/auth/signup": {
+        "post": {
+          "tags": [
+            "auth"
+          ],
+          "summary": "Enables a user to signup",
+          "description": "Registers a new user",
+          "operationId": "createUser",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "description": "Create user object",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/signup"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Account created successfully",
+              "schema": {
+                "$ref": "#/definitions/user"
+              }
+            }
+          }
+        }
+      },
+      "/auth/login": {
+        "post": {
+          "tags": [
+            "auth"
+          ],
+          "summary": "Enables a user to login",
+          "description": "Authenticate a user",
+          "operationId": "loginUser",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "description": "User sign in details",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/login"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "You have been logged in successfully!"
+            },
+            "400": {
+              "description": "Email or Password is invalid",
+              "schema": {
+                "$ref": "#/definitions/user"
+              }
+            }
+          }
+        }
+      }
+    },
+    "definitions": {
+      "red-flag": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "createdBy": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "type": {
+            "type": "string"
+          },
+          "createdOn": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "location": {
+            "type": "string"
+          },
+          "comment": {
+            "type": "string"
+          },
+          "images": {
+            "type": "array",
+            "items": {}
+          },
+          "videos": {
+            "type": "array",
+            "items": {}
+          },
+          "status": {
+            "type": "string",
+            "description": "record status",
+            "enum": [
+              "Draft",
+              "Rejected",
+              "Under investigation",
+              "Resolved"
+            ]
+          }
+        },
+        "xml": {
+          "name": "red-flag"
+        }
+      },
+      "intervention": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "createdBy": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "type": {
+            "type": "string"
+          },
+          "createdOn": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "location": {
+            "type": "string"
+          },
+          "comment": {
+            "type": "string"
+          },
+          "images": {
+            "type": "array",
+            "items": {}
+          },
+          "videos": {
+            "type": "array",
+            "items": {}
+          },
+          "status": {
+            "type": "string",
+            "description": "record status",
+            "enum": [
+              "Draft",
+              "Rejected",
+              "Under investigation",
+              "Resolved"
+            ]
+          }
+        },
+        "xml": {
+          "name": "intervention"
+        }
+      },
+      "record2": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "message": {
+            "type": "string"
+          }
+        },
+        "xml": {
+          "name": "record"
+        }
+      },
+      "signup": {
+        "type": "object",
+        "properties": {
+          "firstname": {
+            "type": "string"
+          },
+          "lastname": {
+            "type": "string"
+          },
+          "username": {
+            "type": "string"
+          },
+          "phonenumber": {
+            "type": "string"
+          },
+          "othernames": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "isadmin": {
+            "type": "boolean"
+          },
+          "registered": {
+            "type": "string"
+          }
+        },
+        "xml": {
+          "name": "User"
+        }
+      },
+      "login": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "externalDocs": {
+      "description": "Find out more about Swagger",
+      "url": "http://swagger.io"
+    }
+  }

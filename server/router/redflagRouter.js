@@ -1,16 +1,18 @@
 import { Router } from 'express';
 import redFlag from '../controllers/redFlag';
-import Validate from '../middleware/validate';
+import adminController from '../controllers/adminController';
+import Auth from '../middleware/authentication';
 const redflagRouter = Router();
 
 const { 
   createRedflag, getAllRedflags, 
   getRedflagsById, patchRedflagLocation, 
-  patchRedflagComment, deleteRedflagById,
-  patchRedflagStatus 
+  patchRedflagComment, deleteRedflagById 
 } = redFlag;
 
-const { verifyToken } = Validate;
+const { patchRedflagStatus } = adminController;
+
+const { verifyToken } = Auth;
 
 redflagRouter.post(
   '/red-flags',

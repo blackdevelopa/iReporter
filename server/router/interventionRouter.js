@@ -1,16 +1,18 @@
 import { Router } from 'express';
 import intervention from '../controllers/intervention';
-import Validate from '../middleware/validate';
+import adminController from '../controllers/adminController';
+import Auth from '../middleware/authentication';
 const interventionRouter = Router();
 
 const { 
   createIntervention, getAllIntervention, 
   getInterventionById, patchInterventionLocation, 
-  patchInterventionComment, deleteInterventionById,
-  patchInterventionStatus 
+  patchInterventionComment, deleteInterventionById 
 } = intervention;
 
-const { verifyToken } = Validate;
+const { patchInterventionStatus } = adminController;
+
+const { verifyToken } = Auth;
 
 interventionRouter.post(
   '/interventions',

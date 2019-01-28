@@ -1,22 +1,25 @@
 import { Router } from 'express';
-import userAuth from '../controllers/auth';
+import userAuth from '../controllers/userAuth';
+import adminAuth from '../controllers/adminAuth';
+import { validateLogin, validateSignup } from '../middleware/validate';
 const userRouter = Router();
 
-const { createUser, loginUser, loginAdmin } = userAuth;
+const { createUser, loginUser } = userAuth;
+const { loginAdmin } = adminAuth;
 
 userRouter.post(
   '/auth/signup', 
-  createUser
+  validateSignup, createUser
 );
 
 userRouter.post(
   '/auth/login', 
-  loginUser
+  validateLogin, loginUser
 );
 
 userRouter.post(
   '/auth/login',
-  loginAdmin
+  validateLogin, loginAdmin
 );
 
 export default userRouter;
