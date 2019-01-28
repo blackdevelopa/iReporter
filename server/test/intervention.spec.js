@@ -273,23 +273,6 @@ describe('PATCH api/v1/interventions/:id/status', () => {
   });
 });
 
-describe('PATCH api/v1/interventions/:id/status', () => {
-  it('should return a 401 error if the user is not an admin', (done) => {
-    chai.request(app)
-      .patch('/api/v1/interventions/2/status')
-      .set({ 'x-access-token': token })
-      .end((err, res) => {
-        if (err) done();
-				expect(res.body).to.be.an('object');
-				expect(res.body).to.haveOwnProperty('status' && 'message');
-        expect(res.body.status).to.be.a('number');
-				expect(res.body.status).to.be.equals(400);
-				expect(res.body.message).to.be.a('string');
-        done();
-      });
-  });
-});
-
 describe('Delete api/v1/interventions/:id/', () => {
   it('should delete a record by id if it exists', (done) => {
     chai.request(app)
