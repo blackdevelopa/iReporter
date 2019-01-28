@@ -1,36 +1,46 @@
-import jwt from 'jsonwebtoken';
-import db from '../db/indexdb';
-import dotenv from 'dotenv';
+import ExpressValidator from 'express-validator/check';
+const { check } = ExpressValidator;
 
-dotenv.config();
+export const validateSignup = [
+	check('username')
+		.isString().withMessage('Username must be alphabetical characters.')
+		.isLength({ min: 7 })
+		.withMessage('Username must be at least 8 characters long'),
 
-const Validate = {
-  // Validate token
+	check('email')
+		.isEmail().withMessage('Email must be alphanumeric characters.')
+		.isLength({ min: 8, max: 40 })
+		.withMessage('Email must be at least 8 characters long and not more than 40'),
 
-  async verifyToken(req, res, next) {
-    const token = req.headers['x-access-token'];
-    if(!token) {
-      return res.status(400).json({
-        status: 400,
-        message: 'You are not authorized to view this route'
-      });
-    }
-    try {
-      const decoded = await jwt.verify(token, process.env.HIDDENKEY);
-      const text = 'SELECT * FROM users WHERE id = $1';
-      const { rows } = await db.query(text, [decoded.userId]);
-      if(!rows[0]) {
-        return res.status(400).json({
-          status: 400,
-          message: 'This token is invalid'
-        });
-      }
-      req.user = { id: decoded.userId };
-      next();
-    } catch(error) {
-      return res.status(400).json(error);
-    }
-  }
-}
+	check('password')
+		.isString().withMessage('Password must be alphanumeric characters.')
+		.isLength({ min: 6, max: 20 })
+		.withMessage('Password must be at least 6 characters long and not more than 20'),
 
-export default Validate;
+	check('firstname')
+		.isString().withMessage('First name must be alphabetic characters.')
+		.isLength({ min: 3, max: 40 })
+		.withMessage('First name must be at least 3 characters long and not more than 40'),
+
+	check('lastname')
+		.isString().withMessage('Last name must be alphanumeric characters.')
+		.isLength({ min: 3, max: 40 })
+		.withMessage('Last name must be at least 3 characters long and not more than 40'),
+
+	check('phonenumber')
+		.isString().withMessage('Phone number must be numeric characters.')
+		.isLength({ min: 10, max: 15 })
+		.withMessage('Phone number must be at least 10 characters long and not more than 15'),
+];
+
+export const validateLogin = [
+	check('email')
+		.isEmail().withMessage('Email must be alphanumeric characters.')
+		.isLength({ min: 8, max: 40 })
+		.withMessage('Email must be at least 8 characters long and not more than 40'),
+
+	check('password')
+		.isString().withMessage('Password must be alphanumeric characters.')
+		.isLength({ min: 6, max: 20 })
+		.withMessage('Password must be at least 6 characters long and not more than 20'),
+];
