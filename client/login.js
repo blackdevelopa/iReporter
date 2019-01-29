@@ -1,14 +1,11 @@
-// const basePath = "";
-
 async function submitLoginForm(e, d) {
   e.preventDefault()
   const loginInfo = {
     email: document.getElementById('email').value,
-    password: document.getElementById("password").value
+    password: document.getElementById('password').value
   }
-  console.log('hi');
 
- await fetch('https://ireporter234.herokuapp.com', {
+ await fetch('https://ireporter234.herokuapp.com/api/v1/auth/login', {
     method: "POST",
     body: JSON.stringify(loginInfo),
     headers: {
@@ -16,22 +13,18 @@ async function submitLoginForm(e, d) {
     }
   })
   .then(function(response) {
-      return response.json();
-    })
+    return response.json();
+  })
   .then((res) => {
-    if(!res.token) throw('no token in response')
-    console.log('hi');
-    window.localStorage.setItem('user_token', res.token)
-    const decoded =  JSON.parse(atob(res.token.split('.')[1]));
-    if(!decoded.isAdmin) {
-      window.location.href = '../user-home.html' 
-    } else {
-      window.location.href = `${basePath}/admin.html` 
+    const { status } = res
+    if (status === 200) {
+      const { token } = res.data[0];
+      localStorage.setItem('userToken', JSON.stringify(token));
+      location.href = '../pages/red-flag.html';
     }
-    
   })
   .catch(error => {
-    console.log(error)
+    return error;
   })
 }
 
