@@ -8,166 +8,42 @@ body {
 }
 
 .navbar {
-  display: flex;
-  top: 0;
-  padding: 20px 0;
   width: 100%;
-  background: #ffffff;
+  top: 0;
+  margin: 25px 0;
 }
-
 .navbar .navbar_text {
+  position: absolute;
   text-decoration: none;
-  padding: 0 5px;
   color: #000;
+  right: 75px;
 }
-
+.navbar .logout {
+  position: absolute;
+  text-decoration: none;
+  color: #000;
+  right: 15px;
+}
 .navbar .navbar_text:hover {
   color: #f28500;
 }
-
 .navbar .logo {
-  flex: 1;
-  padding-left: 5%;
-  font-size: 20px;
-  text-decoration: none;
-}
-
-.navbar .menu {
-  display: flex;
-  flex: 1;
-  flex-direction: row-reverse;
-  padding-right: 5%;
+  padding-left: 20px;
 }
 
 .second_nav {
-  display: flex;
   padding: 20px 0;
   width: 100%;
   background: gray;
+  text-align: center;
 }
-
-.second_nav .redflag {
-  flex: 1;
-  padding-left: 20%;
-}
-
-.second_nav .intervention {
-  display: flex;
-  flex: 1;
-  flex-direction: row-reverse;
-  padding-right: 20%;
-}
-
 .second_nav .record {
   text-decoration: none;
   color: #fff;
+  margin: 45px;
 }
-
 .second_nav .record:hover {
   color: #f28500;
-}
-
-.btn-float {
-	position:fixed;
-	width:60px;
-	height:60px;
-	bottom:40px;
-	right:40px;
-	background-color:#f28500;
-	color:#fff;
-	border-radius:50px;
-	text-align:center;
-	box-shadow: 2px 2px 3px #999;
-}
-
-.open-btn {
-  margin-top:22px;
-}
-
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 50; 
-  background: rgba(0, 0, 0, 0.6);
-}
-
-.new-incident {
-  position: fixed;
-  z-index: 100;
-  height: 60%;
-  width: 50%;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  background: white;
-  box-shadow: 0 0 60px 10px rgba(0, 0, 0, 0.9);
-}
-
-.close-btn {
-  color: #aaaaaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.closed {
-  display: none;
-}
-
-.new-text {
-  flex-direction: column;
-  margin: 2% 5%;
-  padding-bottom: 50px;
-  text-align: center;
-  height: 80%;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  transition: 0.3s;
-}
-
-.content {
-  flex: 3;
-  margin: 5px;
-}
-
-.content .title {
-  width: 100%;
-  height: 45px;
-  margin-bottom: 5%;
-  font-size: 15px;
-  font-weight: bold;
-  text-align: justify;
-  border: 1px solid #000;
-}
-
-.content .description {
-  width: 100%;
-  height: 90px;
-  margin-bottom: 5%;
-  font-size: 15px;
-  font-weight: normal;
-  text-align: justify;
-  border: 1px solid #000;
-}
-
-.location .cord {
-  display: inline-block;
-  width: 50%;
-  height: 30px;
-  margin-bottom: 1%;
-  border: 1px solid #000;
-}
-
-.upload .btn {
-  padding: 5px;
-  height: 20px;
-  text-align: center;
-}
-.new-text button {
-  padding: 10px 25px;
-  margin-top: 9px;
 }
 
 .main {
@@ -175,68 +51,70 @@ body {
   flex-direction: column;
   padding: 20px;
 }
-
-img {
-  border: 1px solid #ddd;
-  border-radius: 20px;
-  padding: 5px;
-  width: 150px;
-}
-
 .card {
   padding: 20px;
   margin-left: 2%;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
 }
-
+img {
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  padding: 5px;
+  width: 150px;
+}
 .button {
   padding: 10px;
   border-radius: 6px;
   cursor: pointer;
 }
-
 .disabled-button {
   padding: 10px;
   border: none;
   border-radius: none;
 }
-
 .button:hover {
   border: 2px solid #f28500;
 }
 
 .footer {
   text-align: center;
-  color: #fff;
-  padding-top: 5px;
+  position: relative;
+  width: 100%;
+  bottom: 0;
   background: #000;
 }
 .footer a:hover {
   color: #f28500;
 }
-
 .footer-links {
   display: inline-block;
   color: #fff;
   text-decoration: none;
 }
 
-@media only screen and (min-width: 768px) {
-  .main {
-    display: flex;
-    padding: 20px;
+@media only screen and (max-width: 992px) {
+  .side_nav {
+    display: none;
   }
+}
+
+@media only screen and (min-width: 992px) {
   .container {
     display: flex;
-    flex-direction: row;
-    margin: 0 2%;
   }
-  .card {
-    width: 30%;
-    height: 40%;
-    padding: 20px;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    transition: 0.3s;
+  .main {
+    flex: 3;
+  }
+  .side_nav {
+    flex: 1;
+  }
+  .side_nav img {
+    position: relative;
+    margin: 30px 0 10px 30px;
+  }
+  .side_body .user_text {
+    position: relative;
+    padding-left: 15px; 
   }
 }
