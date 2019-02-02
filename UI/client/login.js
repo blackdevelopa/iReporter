@@ -19,7 +19,7 @@ async function submitLoginForm(e, d) {
     const { status } = res
     if (status === 200) {
       const { token } = res.data[0];
-      localStorage.setItem('userToken', JSON.stringify(token));
+      localStorage.setItem('userToken', token);
       location.href = '../pages/red-flag.html';
     }
   })
