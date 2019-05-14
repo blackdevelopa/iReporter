@@ -30,12 +30,12 @@ interventionRouter.get(
 );
 
 interventionRouter.patch(
-  '/interventions/:id/location', 
+  '/intervention/:id/location', 
   verifyToken, patchInterventionLocation
 );
 
 interventionRouter.patch(
-  '/interventions/:id/comment', 
+  '/intervention/:id/comment', 
   verifyToken, patchInterventionComment
 );
 

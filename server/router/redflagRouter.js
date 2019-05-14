@@ -30,12 +30,12 @@ redflagRouter.get(
 );
 
 redflagRouter.patch(
-  '/red-flags/:id/location', 
+  '/red-flag/:id/location', 
   verifyToken, patchRedflagLocation
 );
 
 redflagRouter.patch(
-  '/red-flags/:id/comment', 
+  '/red-flag/:id/comment', 
   verifyToken, patchRedflagComment
 );
 
